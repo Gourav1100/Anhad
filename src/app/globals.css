@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '~@flaticon/flaticon-uicons/css/all/all';
+
 @font-face {
     font-family: musicly;
     src: url('../../public/fonts/fa-brands-400.ttf');

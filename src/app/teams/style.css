@@ -1,0 +1,16 @@
+font-face {
+    font-family: fontBold;
+    src: url('../../../public/fonts/fa-solid-900.ttf');
+}
+
+#font-bold {
+    font-family: fontBold;
+}
+
+.cardName {
+    background: #5ee4c6;
+    rotate: -20deg;
+}
+.cardName :hover {
+    background: red;
+}
