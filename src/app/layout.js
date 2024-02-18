@@ -6,10 +6,12 @@ import { useEffect } from 'react';
 import anime from 'animejs';
 import { Mutex } from 'async-mutex';
 import logo from '../../public/favicon.png';
+import icon from '../../public/favicon.ico';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({ children }) {
+    const helmetContext = {};
     useEffect(() => {
         const mutex = new Mutex();
         window.onmousemove = (e) =>
@@ -39,7 +41,7 @@ export default function RootLayout({ children }) {
                     name="description"
                     content="Anhad - Indian Institute of Technology, Jammu"
                 />
-                <link rel="icon" href="/favicon.png" />
+                <link rel="icon" sizes="64x64" href={icon.src} />
             </head>
             <body className={inter.className + ' overflow-hidden'}>
                 <div
