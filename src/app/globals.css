@@ -8,6 +8,14 @@
     src: url('../../public/fonts/fa-brands-400.ttf');
 }
 
+*::-webkit-scrollbar {
+    display: none;
+}
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 :root {
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
@@ -22,15 +30,9 @@
     }
 }
 
-.bodyContainer::-webkit-scrollbar {
-    display: none;
-}
-
 .bodyContainer {
     user-select: none;
     color: rgb(var(--foreground-rgb));
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     background: linear-gradient(
             to bottom,
             transparent,

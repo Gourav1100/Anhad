@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 'use client';
@@ -148,6 +149,25 @@ export default function RootLayout({ children }) {
                     id="mouse-follower-dot"
                 >
                     <div className="p-1 rounded-full overflow-hidden bg-teal-400"></div>
+                </div>
+                <div
+                    className={`fixed w-full h-full flex justify-end items-end p-5 z-40 transition-all duration-300 user-select-none ${
+                        bias >= 100 ? 'opacity-100' : 'opacity-0'
+                    }`}
+                >
+                    <div
+                        onClick={() => {
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth',
+                            });
+                        }}
+                        className="text-xl z-50 rounded-full border border-pink-700 p-2 pl-3 pr-3 bg-black bg-opacity-20 hover:bg-opacity-60 hover:shadow-inner hover:shadow-pink-400 hover:border-pink-500 cursor-pointer"
+                    >
+                        <span className="h-full flex items-center">
+                            <i class="fi fi-rr-angle-small-up"></i>
+                        </span>
+                    </div>
                 </div>
                 <div
                     id="header"
