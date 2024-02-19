@@ -22,9 +22,15 @@
     }
 }
 
-body {
+.bodyContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.bodyContainer {
     user-select: none;
     color: rgb(var(--foreground-rgb));
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     background: linear-gradient(
             to bottom,
             transparent,
@@ -32,6 +38,7 @@ body {
         )
         rgb(var(--background-start-rgb));
 }
+
 #header {
     font-family: musicly;
 }

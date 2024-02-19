@@ -1,22 +1,35 @@
+import abhishekVerma from '../../../public/images/team/Academic.jpg';
+import vikasGarg from '../../../public/images/team/Vikas.jpg';
+import snehaAhuja from '../../../public/images/team/Sneha.jpg';
+import tanishaKhare from '../../../public/images/team/Tanisha.jpg';
+import shivamU from '../../../public/images/team/ShivamU.jpg';
+import prashantSingh from '../../../public/images/team/Prashant.jpg';
+import amitRajput from '../../../public/images/team/Amit.jpg';
+import shivamSaurabh from '../../../public/images/team/Shivam.jpg';
+import pranshuJaiswal from '../../../public/images/team/Pranshu.jpg';
+import aditya from '../../../public/images/team/Aditya.jpg';
+import vatsal from '../../../public/images/team/Vatsal.jpg';
+import sanath from '../../../public/images/team/Sanath.jpg';
+import vanshSingh from '../../../public/images/team/Vansh.jpg';
+import priyanshuMishra from '../../../public/images/team/PriyanshuM.jpg';
+import priyanshuChaudhary from '../../../public/images/team/PC.jpg';
+
 const Team = [
     {
         title: 'Chairpersson',
         team: [
             {
-                name: 'Abhishek Verma',
-                team_name: "Anhad'24",
-                instagram:
-                    'https://www.instagramgram.com/invites/contact/?i=dtwjchziugv3&utm_content=6n47b71',
-                linkedin:
-                    'https://www.linkedin.com/in/abhishek-verma-2055a4265?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-                image: './images/team/Academic.jpg',
-            },
-            {
                 name: 'Ranjeet Raj',
-                team_name: "Anhad'24",
                 instagram: '#',
                 linkedin: '#',
                 image: '#',
+            },
+            {
+                name: 'Abhishek Verma',
+                instagram: 'https://www.instagram.com/captain___abhi',
+                linkedin:
+                    'https://www.linkedin.com/in/abhishek-verma-2055a4265',
+                image: abhishekVerma,
             },
         ],
     },
@@ -25,21 +38,15 @@ const Team = [
         team: [
             {
                 name: 'Vikash garg',
-                team_name: 'Security, PR, technical  event',
-                instagram:
-                    'https://www.instagramgram.com/_vikash_garg_?igsh=ZWN2NHg4aXc1c29n',
-                linkedin:
-                    'https://www.linkedin.com/in/vikash-garg-02685a226?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-                image: './images/team/Vikas.jpg',
+                instagram: 'https://www.instagram.com/_vikash_garg_',
+                linkedin: 'https://www.linkedin.com/in/vikash-garg-02685a226',
+                image: vikasGarg,
             },
             {
                 name: 'Sneha Ahuja',
-                team_name: 'Convenor',
-                instagram:
-                    'https://www.instagramgram.com/snehaa_ahujaa?igsh=MWF6aTloanlxMzE3dg==',
-                linkedin:
-                    'https://www.linkedin.com/in/sneha-ahuja-638606230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-                image: './images/team/Sneha.jpg',
+                instagram: 'https://www.instagram.com/snehaa_ahujaa',
+                linkedin: 'https://www.linkedin.com/in/sneha-ahuja-638606230',
+                image: snehaAhuja,
             },
         ],
     },
@@ -49,77 +56,70 @@ const Team = [
             {
                 name: 'Tanisha khare',
                 team_name: 'Design team',
-                instagram:
-                    'https://www.instagramgram.com/_tanisha._.__?igsh=cndweDJzZTd4MWRo',
+                instagram: 'https://www.instagram.com/_tanisha._.__',
                 linkedin: 'https://www.linkedin.com/in/tanisha-khare-529752218',
-                image: './images/team/Tanisha.jpg',
+                image: tanishaKhare,
             },
             {
                 name: 'Shivam Uniyal',
                 team_name: 'Technical Event Management Team',
-                instagram:
-                    'https://www.instagramgram.com/uniyalshivam25?igsh=MXU0NTJlN213MGhpZA==',
+                instagram: 'https://www.instagram.com/uniyalshivam25',
                 linkedin: 'https://www.linkedin.com/in/shivam-uniyal-985241237',
-                image: './images/team/ShivamU.JPG',
+                image: shivamU,
             },
             {
                 name: 'Manish Jaiswar',
-                team_name: 'Event Management Head (Cultural)',
-                instagram:
-                    'https://www.instagramgram.com/manish.j.2.0?igsh=MTVlNzBsdGpzZnJyYw==',
+                team_name: 'Event Management (Cultural)',
+                instagram: 'https://www.instagram.com/manish.j.2.0',
                 linkedin:
-                    'https://www.linkedin.com/in/manish-jaiswar-783495230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+                    'https://www.linkedin.com/in/manish-jaiswar-783495230',
                 image: '#',
             },
             {
                 name: 'Pranshu Jaiswal',
-                team_name: 'Event Mangement (Technical)',
-                instagram: 'https://www.instagramgram.com/pranshu__jaiswal/',
+                team_name: 'Event Management (Technical)',
+                instagram: 'https://www.instagram.com/pranshu__jaiswal/',
                 linkedin:
                     'https://www.linkedin.com/in/pranshu-jaiswal-388139230/',
-                image: './images/team/Pranshu.jpg',
+                image: pranshuJaiswal,
             },
             {
                 name: 'AMIT RAJPUT',
                 team_name: 'Security Team',
-                instagram: 'https://www.instagramgram.com/amit.rajput360/',
+                instagram: 'https://www.instagram.com/amit.rajput360/',
                 linkedin: 'linkedin.com/in/amit-rajput-48a065230',
-                image: './images/team/Amit.jpg',
+                image: amitRajput,
             },
             {
                 name: 'SHIVAM SAURABH',
-                team_name: 'SECURITY TEAM',
-                instagram:
-                    'https://www.instagramgram.com/s_h_i_v_a_msaurabh?igsh=MWltMm81bzNvc3Mwdg==',
-                linkedin:
-                    'https://www.linkedin.com/in/shivam-saurabh74?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-                image: './images/team/Shivam.jpg',
+                team_name: 'Security Team',
+                instagram: 'https://www.instagram.com/s_h_i_v_a_msaurabh',
+                linkedin: 'https://www.linkedin.com/in/shivam-saurabh74',
+                image: shivamSaurabh,
             },
             {
                 name: 'Prashant Singh',
                 team_name: 'Public Relations and Outreach Team',
-                instagram:
-                    'https://www.instagramgram.com/_prashant._.singh?igsh=MW5pY2k5dGFsdjhwbw==',
+                instagram: 'https://www.instagram.com/_prashant._.singh',
                 linkedin:
-                    'https://www.linkedin.com/in/prashant-singh-079886272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-                image: './images/team/Prashant.jpg',
+                    'https://www.linkedin.com/in/prashant-singh-079886272',
+                image: prashantSingh,
             },
             {
                 name: 'Aditya Saidawat',
                 team_name: 'Public Relation and Outreach Team',
                 team_position: 'Head',
-                instagram:
-                    'https://www.instagramgram.com/aditya_saidawat?igsh=bzBrYWxuNm9jYWl2',
+                instagram: 'https://www.instagram.com/aditya_saidawat',
                 linkedin: 'www.linkedin.com/in/aditya-saidawat-383412281',
-                image: './images/team/Aditya.jpg',
+                image: aditya,
             },
             {
                 name: 'Vatsal Tyagi',
-                team_name: 'Sponsorship Team',
+                team_name: 'Sponsorship',
                 team_position: 'Team Head',
                 instagram: 'NA',
                 linkedin: 'https://www.linkedin.com/in/vatsal-tyagi-3a0264237/',
-                image: './images/team/Vatsal.jpg',
+                image: vatsal,
             },
             {
                 name: 'Sanath Naveen Sharma',
@@ -127,32 +127,29 @@ const Team = [
                 team_position: 'Head',
                 instagram: 'NA',
                 linkedin: 'NA',
-                image: './images/team/Sanath.jpg',
+                image: sanath,
             },
             {
                 name: 'Vansh Singh',
                 team_name: 'Hospitality',
-                instagram:
-                    'https://www.instagramgram.com/rathore.vansh_5005?igsh=bW94b2hnd2RmZmQw',
-                linkedin:
-                    'https://www.linkedin.com/in/vansh-singh-77988b235?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-                image: './images/team/Vansh.jpg',
+                instagram: 'https://www.instagram.com/rathore.vansh_5005',
+                linkedin: 'https://www.linkedin.com/in/vansh-singh-77988b235',
+                image: vanshSingh,
             },
             {
                 name: 'Priyanshu Mishra',
                 team_name: 'Hospitality',
                 instagram: "Instagram Account doesn't exist",
                 linkedin: 'www.linkedin.com/in/priyanshumishra31072003',
-                image: './images/team/Priyanshu.jpg',
+                image: priyanshuMishra,
             },
             {
                 name: 'PRIYANSHU CHAUDHARY',
-                team_name: 'Media',
-                instagram:
-                    'https://www.instagramgram.com/pc_zone__here?igsh=MWR0ZzllYWZjNXppeQ==',
+                team_name: 'Media Team',
+                instagram: 'https://www.instagram.com/pc_zone__here',
                 linkedin:
                     'https://www.linkedin.com/in/priyanshu-chaudhary-4aa7b1223',
-                image: './images/team/PC.jpg',
+                image: priyanshuChaudhary,
             },
         ],
     },
