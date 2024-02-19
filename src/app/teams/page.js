@@ -12,7 +12,7 @@ const Teams = [
                 image: workBg,
             },
             {
-                name: 'Ranjeet Raj',
+                name: 'Abhishek Verma',
                 instagram: '',
                 linkedin: '',
                 image: '',
@@ -20,16 +20,16 @@ const Teams = [
         ],
     },
     {
-        title: 'Chairperson',
+        title: 'Convenors',
         team: [
             {
-                name: 'Ranjeet Raj',
+                name: 'Vikas Garg',
                 instagram: '',
                 linkedin: '',
                 image: workBg,
             },
             {
-                name: 'Ranjeet Raj',
+                name: 'Pratham Modi',
                 instagram: '',
                 linkedin: '',
                 image: '',
@@ -43,7 +43,7 @@ export default function Team() {
             <div
                 className="relative"
                 style={{
-                    height: '55vh',
+                    height: '50vh',
                 }}
             >
                 <div
@@ -79,8 +79,8 @@ export default function Team() {
                                             <div
                                                 className={`relative w-80 h-80 md:ml-8 lg:ml-16 group ${
                                                     personIndex % 2
-                                                        ? 'mt-16'
-                                                        : 'mt-2'
+                                                        ? 'mt-9 mb-7'
+                                                        : 'mt-4'
                                                 }`}
                                                 key={`team-${index}-${personIndex}`}
                                             >
