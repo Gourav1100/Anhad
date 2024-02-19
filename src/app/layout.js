@@ -3,7 +3,7 @@
 'use client';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import anime from 'animejs';
 import { Mutex } from 'async-mutex';
 import logo from '../../public/favicon.png';
@@ -14,54 +14,54 @@ const sponsors = [
     {
         name: 'Sponsor 1',
         url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
+        logo: logo,
     },
     {
         name: 'Sponsor 1',
         url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
-    },
-
-    {
-        name: 'Sponsor 1',
-        url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
-    },
-    {
-        name: 'Sponsor 1',
-        url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
-    },
-    {
-        name: 'Sponsor 1',
-        url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
-    },
-    {
-        name: 'Sponsor 1',
-        url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
+        logo: logo,
     },
 
     {
         name: 'Sponsor 1',
         url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
+        logo: logo,
     },
     {
         name: 'Sponsor 1',
         url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
+        logo: logo,
     },
     {
         name: 'Sponsor 1',
         url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
+        logo: logo,
     },
     {
         name: 'Sponsor 1',
         url: 'https://example.com',
-        logo: import('../../public/favicon.png'),
+        logo: logo,
+    },
+
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: logo,
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: logo,
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: logo,
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: logo,
     },
 ];
 export default function RootLayout({ children }) {
@@ -69,6 +69,7 @@ export default function RootLayout({ children }) {
     const [clientX, setClientX] = useState(0);
     const [clientY, setClientY] = useState(0);
     const [isLoading, setLoading] = useState(false);
+    const [distance, setDistance] = useState(0);
     useEffect(() => {
         anime({
             targets: '#mouse-follower-dot',
@@ -99,24 +100,20 @@ export default function RootLayout({ children }) {
                 setBias(parseInt(window.scrollY));
             });
         };
-        anime({
-            targets: '#scrollbar-sponsor',
-            duration: 10000,
-            scrollX: ['0%', '100%', '0%'],
-            loop: true,
-            easing: 'easeOutBack',
-        });
+        let direction = 1,
+            dist = 0,
+            offset = document.querySelector('.swipe-container').offsetWidth;
+        const interval = setInterval(() => {
+            const next = dist + direction * 300;
+            if (next >= (sponsors.length - 1) * 300 - offset || next <= 0) {
+                direction *= -1;
+            }
+            dist = next;
+            setDistance(dist);
+        }, 5000);
         setBias(parseInt(window.scrollY));
-        Promise.all(
-            sponsors.map(async (sponsor) => {
-                sponsor.logo = (await sponsor.logo).default.src;
-                return sponsor;
-            }),
-        ).then(() => {
-            setTimeout(() => {
-                setLoading(false);
-            }, 1000);
-        });
+        setLoading(false);
+        return () => clearInterval(interval);
     }, []);
     return (
         <html lang="en">
@@ -157,50 +154,147 @@ export default function RootLayout({ children }) {
                     className="p-4 w-full flex z-10 sticky top-0"
                     style={{ background: 'rgba(13, 13, 13, 0.8)' }}
                 >
-                    <span>
+                    <a href="/" className="cursor-pointer">
                         <img
                             height={'auto'}
                             width={'75px'}
                             src={logo.src}
                             alt="Anhad"
                         />
-                    </span>
-                    <span className="ml-2 h-100 text-xl flex flex-col justify-center">
+                    </a>
+                    <a
+                        href="/"
+                        className="ml-2 h-100 text-xl flex flex-col justify-center cursor-pointer"
+                    >
                         Anhad
-                    </span>
+                    </a>
                 </div>
                 {children}
                 <div
-                    className="mt-16 p-10 pb-32 md:p-32 pt-0 md:pt-0 w-full"
-                    style={{ background: '#0D0D0D' }}
+                    className="mt-16 p-10 pb-24 md:p-24 pt-0 md:pt-0 w-full"
+                    style={{ background: 'rgba(13, 13, 13, 0.8)' }}
                 >
                     <div
                         className="w-full"
-                        style={{ borderTop: '2px solid #414141' }}
+                        style={{
+                            borderTop: '2px solid #414141',
+                        }}
                     >
-                        <div
-                            className="p-4 pt-10 whitespace-nowrap overflow-hidden w-full"
-                            id="scrollbar-sponsor"
-                        >
-                            {sponsors.map((sponsor, index) => (
-                                <a
-                                    key={`sponsor-${index}`}
-                                    href={`${sponsor.url}`}
-                                    target="_blank"
-                                >
-                                    <img
-                                        className="inline-block max-h-32"
-                                        src={sponsor.logo}
-                                        alt={sponsor.name}
-                                        width={'256px'}
-                                        style={{
-                                            maxHeight: '128px',
-                                            objectFit: 'contain',
-                                        }}
-                                    />
-                                </a>
-                            ))}
+                        <div className="overflow-hidden swipe-container">
+                            <div
+                                className="p-4 pt-10 w-full flex"
+                                style={{
+                                    transitionDuration: '5000ms',
+                                    transform: `translate3d(-${distance}px, 0px, 0px)`,
+                                }}
+                            >
+                                {sponsors.map((sponsor, index) => (
+                                    <React.Fragment key={`sponsor_${index}`}>
+                                        <a
+                                            className="flex-shrink-0 block"
+                                            href={`${sponsor.url}`}
+                                            target="_blank"
+                                        >
+                                            <img
+                                                className="inline-block max-h-32 grayscale hover:grayscale-0 transition-all hover:scale-150 hover:blur-none"
+                                                src={sponsor.logo.src}
+                                                alt={sponsor.name}
+                                                width={'256px'}
+                                                style={{
+                                                    height: '200px',
+                                                    objectFit: 'contain',
+                                                }}
+                                            />
+                                        </a>
+                                    </React.Fragment>
+                                ))}
+                            </div>
                         </div>
+                    </div>
+                </div>
+                <div
+                    id="footer"
+                    className="pt-12 pb-12 flex flex-row flex-wrap justify-center titleFamily"
+                    style={{
+                        borderTop: '2px solid white',
+                        background: '#0D0D0D',
+                    }}
+                >
+                    <div className="w-full lg:w-1/3 flex justify-center flex-wrap z-10">
+                        <a
+                            href="/"
+                            className="w-full m-2 flex justify-center font-bold hover:text-pink-700 text-2xl"
+                        >
+                            Anhad'24
+                        </a>
+                        <a
+                            href="/home"
+                            className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                        >
+                            Home
+                        </a>
+                        <a
+                            href="/events"
+                            className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                        >
+                            Events
+                        </a>
+                        <a
+                            href="/teams"
+                            className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                        >
+                            Teams
+                        </a>
+                    </div>
+                    <div className="w-full lg:w-1/3 flex justify-center flex-wrap z-10">
+                        <a
+                            href="#"
+                            className="w-full m-2 flex justify-center font-bold hover:text-pink-700 text-2xl"
+                        >
+                            Developed by
+                        </a>
+                        <a
+                            target="_blank"
+                            href="https://github.com/gourav1100"
+                            className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                        >
+                            <i className="fi fi-brands-github mr-2"></i> Gourav
+                            Bidhuri
+                        </a>
+                        <a
+                            href="/events"
+                            className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                        >
+                            <i className="fi fi-brands-github mr-2"></i> Vishal
+                            Kumar
+                        </a>
+                        <a
+                            href="/teams"
+                            className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                        >
+                            <i className="fi fi-brands-github mr-2"></i> Abhay
+                            Singh
+                        </a>
+                    </div>
+                    <div className="w-full lg:w-1/3 flex justify-center flex-wrap z-10">
+                        <a
+                            href="#"
+                            className="w-full m-2 flex justify-center font-bold hover:text-pink-700 text-2xl"
+                        >
+                            Contact Us
+                        </a>
+                        <a
+                            href="tel:+919430870599"
+                            className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                        >
+                            <i className="fi fi-rr-phone-call mr-3"></i> Phone
+                        </a>
+                        <a
+                            href="mailto:cultural.secretary@iitjammu.ac.in"
+                            className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                        >
+                            <i className="fi fi-rr-envelope mr-3"></i> Email
+                        </a>
                     </div>
                 </div>
             </body>

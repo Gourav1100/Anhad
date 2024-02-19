@@ -43,6 +43,10 @@
     font-family: musicly;
 }
 
+.titleFamily {
+    font-family: musicly;
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;
