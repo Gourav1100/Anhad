@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
     const [bias, setBias] = useState(0);
     const [clientX, setClientX] = useState(0);
     const [clientY, setClientY] = useState(0);
-    const [isLoading, setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(true);
     const [distance, setDistance] = useState(0);
     useEffect(() => {
         anime({
@@ -113,7 +113,7 @@ export default function RootLayout({ children }) {
             setDistance(dist);
         }, 5000);
         setBias(parseInt(window.scrollY));
-        setLoading(false);
+        setTimeout(() => setLoading(false), 1000);
         return () => clearInterval(interval);
     }, []);
     return (
@@ -137,7 +137,14 @@ export default function RootLayout({ children }) {
             >
                 {isLoading && (
                     <div className="fixed z-50 w-full h-full flex justify-center items-center bg-stone-900">
-                        Loading
+                        <div class="p-4 bg-gradient-to-tr animate-spin from-blue-600 to-pink-600 via-pink-600 rounded-full">
+                            <div
+                                class="rounded-full"
+                                style={{ background: '#181818' }}
+                            >
+                                <div class="w-24 h-24 rounded-full"></div>
+                            </div>
+                        </div>
                     </div>
                 )}
                 <div
@@ -151,7 +158,7 @@ export default function RootLayout({ children }) {
                     <div className="p-1 rounded-full overflow-hidden bg-teal-400"></div>
                 </div>
                 <div
-                    className={`fixed w-full h-full flex justify-end items-end p-5 z-40 transition-all duration-300 user-select-none ${
+                    className={`fixed z-0 w-full h-full flex justify-end items-end p-5 transition-all duration-300 user-select-none ${
                         bias >= 100 ? 'opacity-100' : 'opacity-0'
                     }`}
                 >
@@ -251,7 +258,7 @@ export default function RootLayout({ children }) {
                             href="/home"
                             className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
                         >
-                            Home
+                            false Home
                         </a>
                         <a
                             href="/events"
