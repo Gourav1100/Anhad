@@ -133,11 +133,12 @@ export default function RootLayout({ children }) {
                     background: '#181818',
                 }}
                 className={
-                    inter.className + ' overflow-x-hidden cursor-default'
+                    inter.className +
+                    ' overflow-x-hidden cursor-default bodyContainer'
                 }
             >
                 {isLoading && (
-                    <div className="absolute z-50 w-full h-full flex justify-center items-center bg-teal-200">
+                    <div className="fixed z-50 w-full h-full flex justify-center items-center bg-stone-900">
                         Loading
                     </div>
                 )}
@@ -170,7 +171,7 @@ export default function RootLayout({ children }) {
                 </div>
                 {children}
                 <div
-                    className="mt-12 p-10 pb-32 md:p-32 pt-0 w-full"
+                    className="mt-16 p-10 pb-32 md:p-32 pt-0 md:pt-0 w-full"
                     style={{ background: '#0D0D0D' }}
                 >
                     <div

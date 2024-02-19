@@ -72,7 +72,23 @@ export default function Team() {
                                                     className="group-hover:transition-all absolute w-full h-full rounded-full -ml-8 mt-8 -z-20 shadow-sm shadow-slate-400 group-hover:shadow-md group-hover:shadow-slate-300"
                                                     style={{
                                                         background: `url(${teamMemberObject.image.src})`,
+                                                        backgroundSize:
+                                                            'contain',
+                                                        backgroundRepeat:
+                                                            'no-repeat',
+                                                        backgroundPosition:
+                                                            'center',
+                                                    }}
+                                                ></div>
+                                                <div
+                                                    className="group-hover:transition-all absolute w-full h-full rounded-full -ml-8 mt-8 -z-30 shadow-sm shadow-slate-400 group-hover:shadow-md group-hover:shadow-slate-300 blur-sm"
+                                                    style={{
+                                                        background: `url(${teamMemberObject.image.src})`,
                                                         backgroundSize: 'cover',
+                                                        backgroundRepeat:
+                                                            'no-repeat',
+                                                        backgroundPosition:
+                                                            'center',
                                                     }}
                                                 ></div>
                                                 <div className="group-hover:transition-all hidden absolute w-full h-full rounded-full justify-center items-center group-hover:flex group-hover:flex-wrap">
@@ -93,8 +109,15 @@ export default function Team() {
                                                         <i className="fi fi-brands-linkedin text-5xl m-2 text-blue-600 cursor-pointer"></i>
                                                     </a>
                                                 </div>
-                                                <div className="w-full h-full flex items-end p-3">
-                                                    <span className="hover:transition-all p-3 pl-8 pr-8 cursor-pointer text-black rounded-full text-xl cardName hover:bg-gradient-to-r from-pink-500 to-amber-500">{`${teamMemberObject.name}`}</span>
+                                                <div className="w-full h-full flex items-end">
+                                                    <div className="w-full flex flex-wrap">
+                                                        <div className="hover:transition-all p-3 pl-8 pr-8 cursor-pointer text-black rounded-full text-lg cardName hover:bg-gradient-to-r from-pink-500 to-amber-500">
+                                                            <div className="">{`${teamMemberObject.name}`}</div>
+                                                            {teamMemberObject.team_name && (
+                                                                <div className="font-extralight text-sm">{`${teamMemberObject.team_name}`}</div>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         );
