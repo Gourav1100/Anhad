@@ -1,42 +1,6 @@
 import workBg from '../../../public/images/background/work-bg.jpg';
 import './style.css';
-
-const Teams = [
-    {
-        title: 'Chairperson',
-        team: [
-            {
-                name: 'Ranjeet Raj',
-                instagram: '',
-                linkedin: '',
-                image: workBg,
-            },
-            {
-                name: 'Abhishek Verma',
-                instagram: '',
-                linkedin: '',
-                image: '',
-            },
-        ],
-    },
-    {
-        title: 'Convenors',
-        team: [
-            {
-                name: 'Vikas Garg',
-                instagram: '',
-                linkedin: '',
-                image: workBg,
-            },
-            {
-                name: 'Pratham Modi',
-                instagram: '',
-                linkedin: '',
-                image: '',
-            },
-        ],
-    },
-];
+import Teams from './team_data';
 export default function Team() {
     return (
         <div id="font-bold">
@@ -75,6 +39,23 @@ export default function Team() {
                             <div className="w-full flex justify-center flex-wrap mt-8">
                                 {teamObject.team.map(
                                     (teamMemberObject, personIndex) => {
+                                        teamMemberObject.name =
+                                            teamMemberObject.name
+                                                .toLowerCase()
+                                                .split(' ');
+                                        teamMemberObject.name =
+                                            teamMemberObject.name.map(
+                                                (name) => {
+                                                    return (
+                                                        name
+                                                            .charAt(0)
+                                                            .toUpperCase() +
+                                                        name.slice(1)
+                                                    );
+                                                },
+                                            );
+                                        teamMemberObject.name =
+                                            teamMemberObject.name.join(' ');
                                         return (
                                             <div
                                                 className={`relative w-80 h-80 md:ml-8 lg:ml-16 group ${
