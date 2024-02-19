@@ -23,7 +23,7 @@ function page() {
                  <td> <input type="file"/></td>
                 </tr>
                 <tr>
-                 <td ><button>Book Now</button></td>
+                 <td colSpan='2' ><button>Book Now</button></td>
                 </tr>
             </table>
         </form>
