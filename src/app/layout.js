@@ -10,12 +10,65 @@ import logo from '../../public/favicon.png';
 import icon from '../../public/favicon.ico';
 
 const inter = Inter({ subsets: ['latin'] });
+const sponsors = [
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
 
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
+
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
+    {
+        name: 'Sponsor 1',
+        url: 'https://example.com',
+        logo: import('../../public/favicon.png'),
+    },
+];
 export default function RootLayout({ children }) {
     const [bias, setBias] = useState(0);
     const [clientX, setClientX] = useState(0);
     const [clientY, setClientY] = useState(0);
-
+    const [isLoading, setLoading] = useState(false);
     useEffect(() => {
         anime({
             targets: '#mouse-follower-dot',
@@ -33,6 +86,7 @@ export default function RootLayout({ children }) {
         });
     }, [bias, clientX, clientY]);
     useEffect(() => {
+        setLoading(true);
         const mutex = new Mutex();
         window.onmousemove = (e) => {
             mutex.runExclusive(() => {
@@ -45,7 +99,24 @@ export default function RootLayout({ children }) {
                 setBias(parseInt(window.scrollY));
             });
         };
+        anime({
+            targets: '#scrollbar-sponsor',
+            duration: 10000,
+            scrollX: ['0%', '100%', '0%'],
+            loop: true,
+            easing: 'easeOutBack',
+        });
         setBias(parseInt(window.scrollY));
+        Promise.all(
+            sponsors.map(async (sponsor) => {
+                sponsor.logo = (await sponsor.logo).default.src;
+                return sponsor;
+            }),
+        ).then(() => {
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
+        });
     }, []);
     return (
         <html lang="en">
@@ -65,6 +136,11 @@ export default function RootLayout({ children }) {
                     inter.className + ' overflow-x-hidden cursor-default'
                 }
             >
+                {isLoading && (
+                    <div className="absolute z-50 w-full h-full flex justify-center items-center bg-teal-200">
+                        Loading
+                    </div>
+                )}
                 <div
                     className="p-3 rounded-full border border-teal-400 absolute shadow-inner shadow-teal-200"
                     id="mouse-follower-wrapper"
@@ -93,6 +169,39 @@ export default function RootLayout({ children }) {
                     </span>
                 </div>
                 {children}
+                <div
+                    className="mt-12 p-10 pb-32 md:p-32 pt-0 w-full"
+                    style={{ background: '#0D0D0D' }}
+                >
+                    <div
+                        className="w-full"
+                        style={{ borderTop: '2px solid #414141' }}
+                    >
+                        <div
+                            className="p-4 pt-10 whitespace-nowrap overflow-hidden w-full"
+                            id="scrollbar-sponsor"
+                        >
+                            {sponsors.map((sponsor, index) => (
+                                <a
+                                    key={`sponsor-${index}`}
+                                    href={`${sponsor.url}`}
+                                    target="_blank"
+                                >
+                                    <img
+                                        className="inline-block max-h-32"
+                                        src={sponsor.logo}
+                                        alt={sponsor.name}
+                                        width={'256px'}
+                                        style={{
+                                            maxHeight: '128px',
+                                            objectFit: 'contain',
+                                        }}
+                                    />
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </body>
         </html>
     );
