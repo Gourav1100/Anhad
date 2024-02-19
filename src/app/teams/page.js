@@ -111,18 +111,12 @@ export default function Team() {
                                                 </div>
                                                 <div className="w-full h-full flex items-end">
                                                     <div className="w-full flex flex-wrap">
-                                                        <div
-                                                            className={`hover:transition-all p-3 pl-8 pr-8 cursor-pointer text-black rounded-full text-lg cardName hover:bg-gradient-to-r from-pink-500 to-amber-500 ${
-                                                                teamMemberObject.team_name
-                                                                    ? '-m-5'
-                                                                    : ''
-                                                            }`}
-                                                        >{`${teamMemberObject.name}`}</div>
-                                                        {teamMemberObject.team_name && (
-                                                            <div className="w-full">
-                                                                <div className="hover:transition-all p-3 pl-8 pr-8 cursor-pointer text-black rounded-full text-md cardName hover:bg-gradient-to-r from-pink-500 to-amber-500">{`${teamMemberObject.team_name}`}</div>
-                                                            </div>
-                                                        )}
+                                                        <div className="hover:transition-all p-3 pl-8 pr-8 cursor-pointer text-black rounded-full text-lg cardName hover:bg-gradient-to-r from-pink-500 to-amber-500">
+                                                            <div className="">{`${teamMemberObject.name}`}</div>
+                                                            {teamMemberObject.team_name && (
+                                                                <div className="font-extralight text-sm">{`${teamMemberObject.team_name}`}</div>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
