@@ -11,6 +11,3 @@ font-face {
     background: #5ee4c6;
     rotate: -20deg;
 }
-.cardName :hover {
-    background: red;
-}

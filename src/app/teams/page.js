@@ -112,7 +112,7 @@ export default function Team() {
                                                 <div className="w-full h-full flex items-end">
                                                     <div className="w-full flex flex-wrap">
                                                         <div className="hover:transition-all p-3 pl-8 pr-8 cursor-pointer text-black rounded-full text-lg cardName hover:bg-gradient-to-r from-pink-500 to-amber-500">
-                                                            <div className="">{`${teamMemberObject.name}`}</div>
+                                                            <div>{`${teamMemberObject.name}`}</div>
                                                             {teamMemberObject.team_name && (
                                                                 <div className="font-extralight text-sm">{`${teamMemberObject.team_name}`}</div>
                                                             )}

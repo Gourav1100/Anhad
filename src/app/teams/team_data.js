@@ -16,7 +16,7 @@ import priyanshuChaudhary from '../../../public/images/team/PC.jpg';
 
 const Team = [
     {
-        title: 'Chairpersson',
+        title: 'Chairperson',
         team: [
             {
                 name: 'Ranjeet Raj',
@@ -34,7 +34,7 @@ const Team = [
         ],
     },
     {
-        title: 'Convener',
+        title: 'Convenors',
         team: [
             {
                 name: 'Vikash garg',
@@ -51,7 +51,7 @@ const Team = [
         ],
     },
     {
-        title: 'Head',
+        title: 'Heads',
         team: [
             {
                 name: 'Tanisha khare',
