@@ -14,6 +14,12 @@ const storage=new CloudinaryStorage({
     folder:'Student_ID',
     allowedFormats: ['png','jpg','jpeg','pdf']
     }
-})
+});
+
+
+// app.use(upload.single('student_id'),(req,res,next)=>{
+
+
+// });
 
 module.exports={cloudinary,storage};
