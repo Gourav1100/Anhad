@@ -13,16 +13,16 @@ import sanath from '../../../public/images/team/Sanath.jpg';
 import vanshSingh from '../../../public/images/team/Vansh.jpg';
 import priyanshuMishra from '../../../public/images/team/PriyanshuM.jpg';
 import priyanshuChaudhary from '../../../public/images/team/PC.jpg';
-
+import ranjeet from '../../../public/images/team/ranjeet.jpeg';
 const Team = [
     {
         title: 'Chairperson',
         team: [
             {
                 name: 'Ranjeet Raj',
-                instagram: '#',
+                instagram: 'https://www.instagram.com/raj_ranjeetk',
                 linkedin: '#',
-                image: '#',
+                image: ranjeet,
             },
             {
                 name: 'Abhishek Verma',
