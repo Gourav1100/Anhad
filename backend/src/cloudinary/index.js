@@ -18,8 +18,6 @@ const storage=new CloudinaryStorage({
 
 
 // app.use(upload.single('student_id'),(req,res,next)=>{
-
-
 // });
 
 module.exports={cloudinary,storage};

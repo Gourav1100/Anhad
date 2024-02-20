@@ -1,11 +1,14 @@
 
+const multer=require('multer');
+const {cloudinary,storage}=require('../cloudinary/index');
+const upload= multer({storage});
 
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [upload.single('student_id')],
     update: [],
     patch: [],
     remove: []
