@@ -1,6 +1,11 @@
 const { Service } = require('feathers-sequelize');
 const Razorpay = require('razorpay');
 
+const multer=require('multer');
+const {cloudinary,storage}=require('../cloudinary');
+const upload= multer({storage});
+
+
 const rzp_key_id = "rzp_test_WDb6DFQhixarEj"
 const rzp_key_secret = "fUUWcbMHsxkn0A4V86YBhIaV"
 
@@ -55,6 +60,7 @@ exports.Payments = class Payments extends Service {
     } catch (error) {
       throw new Error(`Failed to create payment: ${error.message}`);
     }
+
   }
 
   async patch(id,data,params){
