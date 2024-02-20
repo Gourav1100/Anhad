@@ -137,12 +137,12 @@ export default function RootLayout({ children }) {
             >
                 {isLoading && (
                     <div className="fixed z-50 w-full h-full flex justify-center items-center bg-stone-900">
-                        <div class="p-4 bg-gradient-to-tr animate-spin from-blue-600 to-pink-600 via-pink-600 rounded-full">
+                        <div className="p-4 bg-gradient-to-tr animate-spin from-blue-600 to-pink-600 via-pink-600 rounded-full">
                             <div
-                                class="rounded-full"
+                                className="rounded-full"
                                 style={{ background: '#181818' }}
                             >
-                                <div class="w-24 h-24 rounded-full"></div>
+                                <div className="w-24 h-24 rounded-full"></div>
                             </div>
                         </div>
                     </div>
@@ -172,7 +172,7 @@ export default function RootLayout({ children }) {
                         className="text-xl z-50 rounded-full border border-pink-700 p-2 pl-3 pr-3 bg-black bg-opacity-20 hover:bg-opacity-60 hover:shadow-inner hover:shadow-pink-400 hover:border-pink-500 cursor-pointer"
                     >
                         <span className="h-full flex items-center">
-                            <i class="fi fi-rr-angle-small-up"></i>
+                            <i className="fi fi-rr-angle-small-up"></i>
                         </span>
                     </div>
                 </div>
@@ -258,7 +258,7 @@ export default function RootLayout({ children }) {
                             href="/home"
                             className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
                         >
-                            false Home
+                            Home
                         </a>
                         <a
                             href="/events"
