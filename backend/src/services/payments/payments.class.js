@@ -11,8 +11,9 @@ const rzp_key_secret = "fUUWcbMHsxkn0A4V86YBhIaV"
 
 exports.Payments = class Payments extends Service {
   async create(data, params) {
+    const { name, contact, email, amount} = data;
 
-    const { name, contact, email, amount, studentIdImage } = data;
+    const studentIdImage = data.file.path;
     if (!name || !contact || !email || !amount || !studentIdImage) {
       throw new Error('Missing required fields: name, contact, email, or amount');
     }
@@ -67,7 +68,7 @@ exports.Payments = class Payments extends Service {
     if (!data.orderId && !params.query.orderId) {
       throw new Error('Missing required field: orderId');
     }
-    if (!data.paymentIdRazorpay) {
+    if (!data.razorpay_payment_id || !data.razorpay_order_id || data.razorpay_signature) {
       throw new Error('Missing required field: paymentId');
     }
 
@@ -85,8 +86,17 @@ exports.Payments = class Payments extends Service {
       };
     }
     existingData = existingData.data[0];
-    existingData.paymentIdRazorpay = data.paymentIdRazorpay;
-    existingData.paymentStatus = true;
+    var instance = new Razorpay({ key_id: rzp_key_id, key_secret: rzp_key_secret })
+
+    var { validatePaymentVerification, validateWebhookSignature } = require('../../../node_modules/razorpay/dist/utils/razorpay-utils');
+    if(validatePaymentVerification({"order_id": existingData.orderId, "payment_id": data.razorpay_payment_id},data.razorpay_signature, rzp_key_secret)){
+
+    }
+    else{
+      return{
+
+      }
+    }
 
   }
 };
