@@ -1,9 +1,9 @@
 const { Service } = require('feathers-sequelize');
 const Razorpay = require('razorpay');
 
-const multer=require('multer');
-const {cloudinary,storage}=require('../cloudinary');
-const upload= multer({storage});
+// const multer=require('multer');
+// const {cloudinary,storage}=require('../cloudinary');
+// const upload= multer({storage});
 
 
 const rzp_key_id = "rzp_test_WDb6DFQhixarEj"
@@ -11,9 +11,9 @@ const rzp_key_secret = "fUUWcbMHsxkn0A4V86YBhIaV"
 
 exports.Payments = class Payments extends Service {
   async create(data, params) {
-    const { name, contact, email, amount} = data;
+    const { name, contact, email, amount,studentIdImage} = data;
 
-    const studentIdImage = data.file.path;
+    // const studentIdImage = data.file.path;
     if (!name || !contact || !email || !amount || !studentIdImage) {
       throw new Error('Missing required fields: name, contact, email, or amount');
     }
@@ -57,7 +57,11 @@ exports.Payments = class Payments extends Service {
 
     try {
       const savedPayment = await super.create(paymentData, params); // Save payment data
-      return savedPayment;
+      return{
+        code :200,
+        data : savedPayment,
+        message : "Payment Successfull"
+      }
     } catch (error) {
       throw new Error(`Failed to create payment: ${error.message}`);
     }
@@ -90,13 +94,18 @@ exports.Payments = class Payments extends Service {
 
     var { validatePaymentVerification, validateWebhookSignature } = require('../../../node_modules/razorpay/dist/utils/razorpay-utils');
     if(validatePaymentVerification({"order_id": existingData.orderId, "payment_id": data.razorpay_payment_id},data.razorpay_signature, rzp_key_secret)){
-
+        existingData.paymentIdRazorpay = data.razorpay_payment_id;
+        existingData.paymentStatus = 1;
     }
     else{
-      return{
-
-      }
+      return {
+        code: 400, // Not found
+        message: 'Inavlid Payment Details'
+      };
     }
-
+    return{
+      code :200,
+      message : "Payment Successfull"
+    }
   }
 };
