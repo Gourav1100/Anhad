@@ -106,7 +106,7 @@ export default function RootLayout({ children }) {
             offset = document.querySelector('.swipe-container').offsetWidth;
         const interval = setInterval(() => {
             const next = dist + direction * 300;
-            if (next >= (sponsors.length - 1) * 300 - offset || next <= 0) {
+            if (next >= (sponsors.length - 2) * 300 - offset || next <= 0) {
                 direction *= -1;
             }
             dist = next;
@@ -247,7 +247,7 @@ export default function RootLayout({ children }) {
                         background: '#0D0D0D',
                     }}
                 >
-                    <div className="w-full lg:w-1/3 flex justify-center flex-wrap z-10">
+                    <div className="w-full lg:w-1/3 flex justify-center flex-wrap z-10 p-2">
                         <a
                             href="/"
                             className="w-full m-2 flex justify-center font-bold hover:text-pink-700 text-2xl"
@@ -273,7 +273,7 @@ export default function RootLayout({ children }) {
                             Teams
                         </a>
                     </div>
-                    <div className="w-full lg:w-1/3 flex justify-center flex-wrap z-10">
+                    <div className="w-full lg:w-1/3 flex justify-center flex-wrap z-10 p-2">
                         <a
                             href="#"
                             className="w-full m-2 flex justify-center font-bold hover:text-pink-700 text-2xl"
@@ -306,7 +306,7 @@ export default function RootLayout({ children }) {
                     <div className="w-full lg:w-1/3 flex justify-center flex-wrap z-10">
                         <a
                             href="#"
-                            className="w-full m-2 flex justify-center font-bold hover:text-pink-700 text-2xl"
+                            className="w-full m-2 flex justify-center font-bold hover:text-pink-700 text-2xl p-2"
                         >
                             Contact Us
                         </a>
