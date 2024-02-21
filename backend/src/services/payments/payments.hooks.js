@@ -1,6 +1,6 @@
 
 const multer=require('multer');
-const {cloudinary,storage}=require('../cloudinary/index');
+const {cloudinary,storage}=require('../../cloudinary/index.js');
 const upload= multer({storage});
 
 module.exports = {
