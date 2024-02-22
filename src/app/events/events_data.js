@@ -57,7 +57,7 @@ const events_data = [
             },
             {
                 name: 'Flex Fury',
-                desc: '#',
+                desc: '#Flex Fury is a fun sports events at IIT Jammu where you get to show-case your Strength and physique. Compete against your fellow challengers and be victorious.',
                 url: 'https://unstop.com/events/flex-fury-anhad24-iit-jammu-870769',
                 image: flexfury,
             },
