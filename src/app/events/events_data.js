@@ -20,6 +20,7 @@ import personalitypageant from '../../../public/images/events/personalitypageant
 import promnight from '../../../public/images/events/promnight.jpg';
 import runwayreverie from '../../../public/images/events/runwayreverie.jpg';
 import groovetroops from '../../../public/images/events/groovetroops.jpg';
+import frozen from '../../../public/images/events/frozen.jpg';
 
 const events_data = [
     {
@@ -29,7 +30,7 @@ const events_data = [
                 name: 'Talent Hunt',
                 desc: '"Embark on a Journey of Talent Exploration! Join our Talent Hunt Extravaganza, where dreams come alive on stage. Uncover the extraordinary within you and let your brilliance shine. #DiscoverYourSpark #TalentHuntAdventure"',
                 url: 'https://unstop.com/events/openmic-anhad-24-iit-jammu-860807',
-                image: '#',
+                image: openmic,
             },
             {
                 name: 'Blind Date (Boys)',
@@ -57,7 +58,7 @@ const events_data = [
             },
             {
                 name: 'Flex Fury',
-                desc: '#',
+                desc: '#Flex Fury is a fun sports events at IIT Jammu where you get to show-case your Strength and physique. Compete against your fellow challengers and be victorious.',
                 url: 'https://unstop.com/events/flex-fury-anhad24-iit-jammu-870769',
                 image: flexfury,
             },
@@ -69,7 +70,7 @@ const events_data = [
             },
             {
                 name: 'Pentathlon',
-                desc: '#',
+                desc: 'Anhad pentathalon offers a range of challenges to test your skills. From memory-testing quizzes to mind-bending riddles, constructing card castles, solving Rubiks cube, and even eating challenges, there is something for everyone.',
                 url: 'https://unstop.com/events/pentathlon-anhad-24-iit-jammu-858773',
                 image: pentatathalon,
             },
@@ -101,7 +102,7 @@ const events_data = [
                 name: 'Frozen Moments',
                 desc: '"Frozen Moments." It is all about photography, photostories, and reel making. You will have the chance to showcase your creativity and capture unforgettable memories. Whether you are into photography or storytelling, this event has something for everyone. Get ready to freeze those special moments and bring them to life through your lens! ',
                 url: 'https://unstop.com/events/frozen-moments-anhad24-iit-jammu-858759',
-                image: '#',
+                image: frozen,
             },
         ],
     },
