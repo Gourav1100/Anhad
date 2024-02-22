@@ -11,9 +11,10 @@ const rzp_key_secret = "fUUWcbMHsxkn0A4V86YBhIaV"
 
 exports.Payments = class Payments extends Service {
   async create(data, params) {
-    const { name, contact, email, amount,studentIdImage} = data;
-
+    const { name, contact, email, amount} = data;
+    // const studentIdImage=params.file.path;
     // const studentIdImage = data.file.path;
+
     if (!name || !contact || !email || !amount || !studentIdImage) {
       throw new Error('Missing required fields: name, contact, email, or amount');
     }
