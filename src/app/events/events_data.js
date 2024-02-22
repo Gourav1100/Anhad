@@ -29,7 +29,7 @@ const events_data = [
                 name: 'Talent Hunt',
                 desc: '"Embark on a Journey of Talent Exploration! Join our Talent Hunt Extravaganza, where dreams come alive on stage. Uncover the extraordinary within you and let your brilliance shine. #DiscoverYourSpark #TalentHuntAdventure"',
                 url: 'https://unstop.com/events/openmic-anhad-24-iit-jammu-860807',
-                image: '#',
+                image: openmic,
             },
             {
                 name: 'Blind Date (Boys)',
