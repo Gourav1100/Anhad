@@ -14,6 +14,8 @@ import vanshSingh from '../../../public/images/team/Vansh.jpg';
 import priyanshuMishra from '../../../public/images/team/PriyanshuM.jpg';
 import priyanshuChaudhary from '../../../public/images/team/PC.jpg';
 import ranjeet from '../../../public/images/team/ranjeet.jpeg';
+import manish from '../../../public/images/team/Jaishwar.jpg';
+
 const Team = [
     {
         title: 'Chairperson',
@@ -73,7 +75,7 @@ const Team = [
                 instagram: 'https://www.instagram.com/manish.j.2.0',
                 linkedin:
                     'https://www.linkedin.com/in/manish-jaiswar-783495230',
-                image: '#',
+                image: manish,
             },
             {
                 name: 'Pranshu Jaiswal',
