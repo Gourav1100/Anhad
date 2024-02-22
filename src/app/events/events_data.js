@@ -20,6 +20,7 @@ import personalitypageant from '../../../public/images/events/personalitypageant
 import promnight from '../../../public/images/events/promnight.jpg';
 import runwayreverie from '../../../public/images/events/runwayreverie.jpg';
 import groovetroops from '../../../public/images/events/groovetroops.jpg';
+import frozen from '../../../public/images/events/frozen.jpg';
 
 const events_data = [
     {
@@ -69,7 +70,7 @@ const events_data = [
             },
             {
                 name: 'Pentathlon',
-                desc: '#',
+                desc: 'Anhad pentathalon offers a range of challenges to test your skills. From memory-testing quizzes to mind-bending riddles, constructing card castles, solving Rubiks cube, and even eating challenges, there is something for everyone.',
                 url: 'https://unstop.com/events/pentathlon-anhad-24-iit-jammu-858773',
                 image: pentatathalon,
             },
@@ -101,7 +102,7 @@ const events_data = [
                 name: 'Frozen Moments',
                 desc: '"Frozen Moments." It is all about photography, photostories, and reel making. You will have the chance to showcase your creativity and capture unforgettable memories. Whether you are into photography or storytelling, this event has something for everyone. Get ready to freeze those special moments and bring them to life through your lens! ',
                 url: 'https://unstop.com/events/frozen-moments-anhad24-iit-jammu-858759',
-                image: '#',
+                image: frozen,
             },
         ],
     },
