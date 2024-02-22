@@ -178,23 +178,36 @@ export default function RootLayout({ children }) {
                 </div>
                 <div
                     id="header"
-                    className="p-4 w-full flex z-10 sticky top-0"
+                    className="p-4 w-full flex z-10 sticky top-0 justify-between"
                     style={{ background: 'rgba(13, 13, 13, 0.8)' }}
                 >
-                    <a href="/" className="cursor-pointer">
-                        <img
-                            height={'auto'}
-                            width={'75px'}
-                            src={logo.src}
-                            alt="Anhad"
-                        />
-                    </a>
-                    <a
-                        href="/"
-                        className="ml-2 h-100 text-xl flex flex-col justify-center cursor-pointer"
-                    >
-                        Anhad
-                    </a>
+                    <span className="flex">
+                        <a href="/" className="cursor-pointer">
+                            <img
+                                height={'auto'}
+                                width={'75px'}
+                                src={logo.src}
+                                alt="Anhad"
+                            />
+                        </a>
+                        <a
+                            href="/"
+                            className="ml-2 h-100 text-xl flex flex-col justify-center cursor-pointer"
+                        >
+                            Anhad
+                        </a>
+                    </span>
+                    <span className="flex flex-col justify-center h-100">
+                        <a
+                            href="/book-ticket"
+                            className="justify-center cursor-pointer flex text-cyan-800 hover:text-cyan-700 border border-cyan-800 hover:border-cyan-700 p-2 rounded hover:bg-cyan-400 hover:bg-opacity-10"
+                        >
+                            <i className="text-xl mr-0 md:mr-2 fi fi-rr-ticket h-5 flex flex-col justify-center w-fit"></i>
+                            <span className="hidden text-sm md:flex w-fit h-5 flex-col justify-center">
+                                Book Now
+                            </span>
+                        </a>
+                    </span>
                 </div>
                 {children}
                 <div
