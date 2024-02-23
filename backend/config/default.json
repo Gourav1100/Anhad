@@ -1,10 +1,26 @@
 {
-  "host": "localhost",
-  "port": 3030,
-  "public": "../public/",
-  "paginate": {
-    "default": 10,
-    "max": 50
-  },
-  "sqlite": "sqlite://anhad_backend.sqlite"
+    "host": "localhost",
+    "port": 3030,
+    "public": "../public/",
+    "paginate": {
+        "default": 10,
+        "max": 50
+    },
+    "sqlite": "sqlite://anhad_backend.sqlite",
+    "google-cloud-storage": {
+        "secret": {
+            "type": "service_account",
+            "project_id": "anhad-2024",
+            "private_key_id": "89acb946f5a0f62c8b9acf8446fd0e59f9246ccf",
+            "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCMoZ/DPmAjIhax\n1X9nzgPKFB5RC6VlvEXiRIXpyb4SzeShDimPr8yCXhQ9F7ZSKjtx8JMxrBbClVjK\nqVUreLIE+6TvRGYkxuWQDHVlvRCA8Mr8x8geK2yfmM/XAa0bluAHtXhpHc74USll\n+zPvsq9AffBKzRqWXSSqFnXTvD0tc8q4HHazMPxlaC7GNdmPF5IQhvPM7ICmRnO4\nKI66YmPO/zqh/5mseymPFC2Ygu7T5FBhl10CIREtqH/A18OhQTNKtrvBXIkitAAZ\nPv0Ik+KRZbzDee9JTtv1zjzvD/x7VMZNKg4UGHC46t+D25rNbYrxj/CIolzWqoXf\n4qYmtS+ZAgMBAAECggEAE5EXWASRPsIq8zJX6DsHVvIGp9Mdf7K67HkJQtaRji88\njNYaHUZiB4+MdFWcxgDfRYKqEEK35fn+oS//TC2eY0gaEjprldlgrnK1UOMF7VLT\ng2lOpDf5hJkv7ePrUIflAt2Sc9m0ZuNwBaL2fnbXoHsFWHsCJIKwK8Q1P7EUuAKM\nDzLpyjn71dAOoFtkv6VnzwveAVYtO1MurZf07mOI827Dx5sQQl1w9gayR/4suxvh\nvOB3r2zwMjDWvAa0YF2Gx4Eq7PHj178ic0KNcS+p20OfVK4LE+rnD5HKfecTog7Q\ngDPFutR1rHx+ZIs82AjBdFMlNEUlt4oUzonvobLm6QKBgQDFCQvvYfb+Ff/Y10Qd\nBSFKvWdcMfgVG/+W/UzysejL6S4fPtB+Co2a3B8yxNUc7Jr7I0bjCwlpkpUZaqg1\nY8xWgsdS6XX0fKCXwnzz3XvefYdc1hehgJafKllM8nuiZw9ujKzTxe/ozJbhsP7Y\nuJXnUNdcDJfnk4pVPQj2lHk+JQKBgQC2t3IWu8M/1BP4/oLdvHpxJLmRJHIqR73w\n/f6zyelHhT9dYYEBgs0p+00gQmEOoqPy3LFKZT2JyWXxFglc05M8PAMMwT/g5WKW\nRbA7EIg3NC7uw2psnH0HQcSj2z0fW2LDddvT4rX1Jk/W/sSEyVivblaHKljtbl3Y\nt2+2dbWPZQKBgBFwA4Zj/R/vgn0GUBjhY1jh+kvGgFYd7DjIog64gAnL0TEitgDx\nniaeZIRxtwqgRfcD4Dont+WH+3oMXmabNnJRkKJd1vqULQJBTB2o9FV0do5YxC6e\n2rWrYcvVieuNg2gdOw5i7iCEOrYum99CNsIJ/YU/+BGelReGF0z7Rt+hAoGABLye\nvY4ikq4J0oOumtb/CZ3dHbEnMIdpmizLhJewb4U5zk7vzD062mLEbhiqcXmv7GTi\nR752KPNKrERY+8oUYBRiM9tyr37i3mhyGCXmkh/NM61nPeeUqjJ/SYwuenihB9Yv\nW7/d3bwfh8BVEegyX2Hp5lknswgQcMTYpY9JpK0CgYAjczl2DWuy3NZ8AtDbmR2r\ngA2eyLj1n+CET6LVdgP1duUx7EIenG9Kf8/Ze3OeNY1amupKQLI26TkU+neBxiaZ\nMtxkT0v2mH7gqWXb/ZgAiz4EQvLfZUEiGmq4YZj/LVDI/g/OCuPg2Tkw9l42oOOq\nGBTfVSvZr2gh3/xcEVrUPg==\n-----END PRIVATE KEY-----\n",
+            "client_email": "anhad2024@anhad-2024.iam.gserviceaccount.com",
+            "client_id": "104182294540567759001",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+            "token_uri": "https://oauth2.googleapis.com/token",
+            "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+            "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/anhad2024%40anhad-2024.iam.gserviceaccount.com",
+            "universe_domain": "googleapis.com"
+        },
+        "bucket": "anhad2024"
+    }
 }

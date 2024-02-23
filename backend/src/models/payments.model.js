@@ -41,6 +41,10 @@ module.exports = function (app) {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            studentId: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
         },
         {
             hooks: {

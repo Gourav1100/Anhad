@@ -3,6 +3,6 @@ font-face {
     src: url('../../../public/fonts/fa-solid-900.ttf');
 }
 
-#font-bold {
+.font-family-bold {
     font-family: fontBold;
 }
