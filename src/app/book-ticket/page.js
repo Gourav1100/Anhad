@@ -50,17 +50,24 @@ function page() {
             });
         const orderId = response.data.orderId;
         const options = {
-            key: "YOUR_KEY_ID", // Enter the Key ID generated from the Dashboard
+            key: process.env.NEXT_PUBLIC_RAZOR_PAY_KEY, // Enter the Key ID generated from the Dashboard
             amount: process.env.NEXT_PUBLIC_TICKET_AMOUNT, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             currency: "INR",
-            name: "Anhad 2024 (IIT Jammu)",
+            name: "Anhad 2024",
             description: "Anhad Ticket Booking Portal",
             image: logo.url,
             order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the response of createOrder().
-            handler: function (response) {
-                alert(response.razorpay_payment_id);
-                alert(response.razorpay_order_id);
-                alert(response.razorpay_signature);
+            handler: async function (response) {
+                const res = await axios
+                    .patch(
+                        process.env.NEXT_PUBLIC_BACKEND_URL + "/payments",
+                        response,
+                    )
+                    .catch((err) => {
+                        console.log(err);
+                    });
+                console.log(res);
+                alert(res.data.message);
             },
             prefill: {
                 name: formData.name,
@@ -75,13 +82,7 @@ function page() {
         const rzp1 = new Razorpay(options);
 
         rzp1.on("payment.failed", function (response) {
-            alert(response.error.code);
-            alert(response.error.description);
-            alert(response.error.source);
-            alert(response.error.step);
-            alert(response.error.reason);
-            alert(response.error.metadata.order_id);
-            alert(response.error.metadata.payment_id);
+            console.log(response);
         });
 
         rzp1.open();

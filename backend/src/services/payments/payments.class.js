@@ -7,7 +7,7 @@ const rzp_key_secret = "fUUWcbMHsxkn0A4V86YBhIaV";
 exports.Payments = class Payments extends Service {
     async create(data, params) {
         const { name, contact, email, studentIdImage, studentId } = data;
-        const amount = 500;
+        const amount = 50000;
         // const studentIdImage=params.file.path;
         // const studentIdImage = data.file.path;
 
@@ -56,22 +56,21 @@ exports.Payments = class Payments extends Service {
     }
 
     async patch(id, data, params) {
-        if (!data.orderId && !params.query.orderId) {
+        console.log(data);
+        if (!data.razorpay_order_id) {
             throw new Error("Missing required field: orderId");
         }
         if (
             !data.razorpay_payment_id ||
-            !data.razorpay_order_id ||
-            data.razorpay_signature
+            !data.razorpay_signature
         ) {
             throw new Error("Missing required field: paymentId");
         }
 
-        const queryorderId = data.orderId || params.query.orderId;
-        let existingData;
-        existingData = await super.find({
+        const queryOrderId = data.razorpay_order_id;
+        let existingData = await super.find({
             query: {
-                $or: [{ orderId: queryorderId }],
+                $or: [{ orderId: queryOrderId }],
             },
         });
         if (
@@ -81,7 +80,7 @@ exports.Payments = class Payments extends Service {
         ) {
             return {
                 code: 404, // Not found
-                message: `Data with orderId "${queryorderId}" not found`,
+                message: `Data with orderId "${queryOrderId}" not found`,
             };
         }
         existingData = existingData.data[0];
