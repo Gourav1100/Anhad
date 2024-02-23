@@ -1,0 +1,8 @@
+font-face {
+    font-family: fontBold;
+    src: url("../../../public/fonts/fa-solid-900.ttf");
+}
+
+.font-family-bold {
+    font-family: fontBold;
+}
