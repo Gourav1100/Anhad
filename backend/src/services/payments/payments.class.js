@@ -1,10 +1,47 @@
 /* eslint-disable no-unused-vars */
 const { Service } = require("feathers-sequelize");
 const Razorpay = require("razorpay");
+const moment = require('moment');
 const rzp_key_id = "rzp_test_WDb6DFQhixarEj";
 const rzp_key_secret = "fUUWcbMHsxkn0A4V86YBhIaV";
+const api_password = 'peppermint'
 
 exports.Payments = class Payments extends Service {
+  async get(id,params){
+    if(params.query.pass !== api_password){
+      return{
+        code : 401,
+        message : 'Unauthorized Access Attempt'
+      }
+    }
+    let fetchedData = await super.find({
+      query: {
+        $or: [{ paymentIdRazorpay: id }],
+      },
+    });
+    fetchedData = fetchedData.data[0];
+    const lastCheckIn = fetchedData.lastCheckIn;
+    const today = new Date().toISOString().slice(0, 10);
+    console.log(today)
+    if(lastCheckIn == null || moment(today).isAfter(moment(lastCheckIn))){
+      fetchedData.lastCheckIn = "2024-02-24";
+      await super.patch(fetchedData.id,fetchedData);
+      return{
+        code : 200,
+        message : 'CheckIn Successfull',
+        data : {
+          name : fetchedData.name,
+          studentId : fetchedData.studentIdImage
+        }
+      }
+    }
+    return{
+      code : 400,
+      message : `Invalid CheckIn : Last Checkin on ${fetchedData.lastCheckIn}`
+    }
+  }
+
+
   async create(data, params) {
     const { name, contact, email, studentIdImage, studentId } = data;
     const amount = 50000;
@@ -77,7 +114,7 @@ exports.Payments = class Payments extends Service {
       existingData.data.length === 0
     ) {
       return {
-        code: 404, // Not found
+        code: 400, // Not found
         message: `Data with orderId "${queryOrderId}" not found`,
       };
     }
@@ -106,6 +143,7 @@ exports.Payments = class Payments extends Service {
       updatedData.paymentStatus = true;
       await super.patch(updatedData.id,updatedData); // Update payment data
     } else {
+      await super.delete(updatedData.remove)
       return {
         code: 400, // Not found
         message: "Inavlid Payment Details",
