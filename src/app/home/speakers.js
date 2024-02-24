@@ -4,27 +4,27 @@ const Speakers = [
     {
         name: "Speaker 1",
         image: image.src,
-        position: "Position 1"
+        position: "Releasing Soon"
     },
     {
-        name: "Speaker 1",
+        name: "Speaker 2",
         image: image.src,
-        position: "Position 1"
+        position: "Releasing Soon"
     },
     {
-        name: "Speaker 1",
+        name: "Speaker 3",
         image: image.src,
-        position: "Position 1"
+        position: "Releasing Soon"
     },
     {
-        name: "Speaker 1",
+        name: "Speaker 4",
         image: image.src,
-        position: "Position 1"
+        position: "Releasing Soon"
     },
     {
-        name: "Speaker 1",
+        name: "Speaker 5",
         image: image.src,
-        position: "Position 1"
+        position: "Releasing Soon"
     },
 ];
 export default Speakers;
