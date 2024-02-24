@@ -160,7 +160,7 @@ export default function RootLayout({ children }) {
                         <div className="p-1 rounded-full overflow-hidden bg-teal-400"></div>
                     </div>
                     <div
-                        className={`fixed z-0 w-full h-full flex justify-end items-end p-5 transition-all duration-300 user-select-none ${
+                        className={`fixed z-10 w-full h-full flex justify-end items-end p-5 transition-all duration-300 user-select-none ${
                             bias >= 100 ? "opacity-100" : "opacity-0"
                         }`}
                     >
