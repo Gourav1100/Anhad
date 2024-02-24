@@ -180,7 +180,7 @@ export default function RootLayout({ children }) {
                     </div>
                     <div
                         id="header"
-                        className="p-4 w-full flex z-10 sticky top-0 justify-between"
+                        className="p-4 w-full flex z-20 sticky top-0 justify-between"
                         style={{ background: "rgba(13, 13, 13, 0.8)" }}
                     >
                         <span className="flex">
