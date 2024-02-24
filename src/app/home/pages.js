@@ -42,7 +42,7 @@ export default function Home() {
             <div
                 className="relative"
                 style={{
-                    height: "55vh",
+                    height: "90vh",
                 }}
             >
                 <div
@@ -59,8 +59,9 @@ export default function Home() {
                     <img
                         className="rounded-xl transition-all duration-500 hover:scale-105 opacity-80 hover:opacity-90"
                         style={{
+                            width: "100%",
                             height: "100%",
-                            objectFit: "contain",
+                            objectFit: "cover",
                         }}
                         src={background.src}
                         alt="anhad"
