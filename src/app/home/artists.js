@@ -2,34 +2,23 @@ import image from "../../../public/images/mainArtist.jpg";
 
 const Artists = [
     {
-        name: "Artist 1",
+        name: "Performance 1",
         instagram: "https://google.com",
         image: image.src,
-        genre: "Stand Up",
+        genre: "Releasing soon",
     },
     {
-        name: "Artist 1",
+        name: "Performance 2",
         instagram: "https://google.com",
         image: image.src,
-        genre: "Stand Up",
+        genre: "Releasing soon",
     },
     {
-        name: "Artist 1",
+        name: "Performance 3",
         instagram: "https://google.com",
         image: image.src,
-        genre: "Stand Up",
+        genre: "Releasing soon",
     },
-    {
-        name: "Artist 1",
-        instagram: "https://google.com",
-        image: image.src,
-        genre: "Stand Up",
-    },
-    {
-        name: "Artist 1",
-        instagram: "https://google.com",
-        image: image.src,
-        genre: "Stand Up",
-    },
+
 ];
 export default Artists;
