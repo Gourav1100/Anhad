@@ -272,7 +272,7 @@ export default function RootLayout({ children }) {
                                 Anhad'24
                             </a>
                             <a
-                                href="/home"
+                                href="/"
                                 className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
                             >
                                 Home
