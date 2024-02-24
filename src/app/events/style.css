@@ -1,8 +1,8 @@
-font-face {
-    font-family: fontBold;
-    src: url('../../../public/fonts/fa-solid-900.ttf');
+@font-face {
+    font-family: musicly;
+    src: url('../../../public/fonts/fa-brands-400.ttf');
 }
 
 .font-family-bold {
-    font-family: fontBold;
+    font-family: musicly;
 }
