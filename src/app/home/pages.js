@@ -61,7 +61,7 @@ export default function Home() {
                         style={{
                             width: "100%",
                             height: "100%",
-                            objectFit: "contain",
+                            objectFit: "cover",
                         }}
                         src={background.src}
                         alt="anhad"
@@ -99,37 +99,37 @@ export default function Home() {
                                 tEcHnO-cUlTuRaL
                             </span>
                             <span className="p-8 pr-16 pl-16 text-teal-700">
-                                Techno-Cultural
+                                7-11 March
                             </span>
                             <span className="p-8 pr-16 pl-16 text-pink-700">
                                 TeChNo-CuLtUrAl
                             </span>
                             <span className="p-8 pr-16 pl-16 text-cyan-600">
-                                TECHNO-CULTURAL
+                            7-11 MaRcH
                             </span>
                             <span className="p-8 pr-16 pl-16 text-sky-700">
                                 tEcHnO-cUlTuRaL
                             </span>
                             <span className="p-8 pr-16 pl-16 text-teal-700">
-                                Techno-Cultural
+                            7-11 March
                             </span>
                             <span className="p-8 pr-16 pl-16 text-pink-700">
                                 TeChNo-CuLtUrAl
                             </span>
                             <span className="p-8 pr-16 pl-16 text-amber-600">
-                                TECHNO-CULTURAL
+                            7-11 MaRcH
                             </span>
                             <span className="p-8 pr-16 pl-16 text-sky-600">
                                 tEcHnO-cUlTuRaL
                             </span>
                             <span className="p-8 pr-16 pl-16 text-teal-600">
-                                Techno-Cultural
+                            7-11 maRcH
                             </span>
                             <span className="p-8 pr-16 pl-16 text-pink-600">
                                 TeChNo-CuLtUrAl
                             </span>
                             <span className="p-8 pr-16 pl-16">
-                                TECHNO-CULTURAL
+                            7-11 MaRcH
                             </span>
                         </marquee>
                     </div>
