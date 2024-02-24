@@ -33,7 +33,7 @@ export default function page() {
                             Our Events
                         </div>
                         <div className="w-96 font-extralight h-fit mt-6 flex justify-center text-md md:text-lg text-center">
-                       
+         
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ export default function page() {
                                                         href={event.url}
                                                         target="_blank"
                                                     >
-                                                        <i className="fi fi-br-link"></i>
+                                                        <button className="shadow__btn">View Event</button>
                                                     </a>
                                                 </div>
                                             </div>
