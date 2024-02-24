@@ -11,6 +11,7 @@ import speakers from "./speakers";
 import team from "./team_subset";
 import "./style.css";
 
+
 export default function Home() {
     function isInViewport(element) {
         const rect = element.getBoundingClientRect();
@@ -42,11 +43,11 @@ export default function Home() {
             <div
                 className="relative"
                 style={{
-                    height: "90vh",
+                    height: "100vh",
                 }}
             >
                 <div
-                    className="w-full absolute h-full -z-30"
+                    className="w-full absolute h-full"
                     style={{
                         backgroundImage: `url(${background.src})`,
                         backgroundSize: "cover",
@@ -226,7 +227,7 @@ export default function Home() {
                 </div>
             </div>
             <div className="w-full p-8 pb-2 text-oregano lg:p-64 lg:pt-8 lg:pb-2 artist-title text-4xl lg:text-6xl fade-in fadeInElement">
-                Popular Categories
+                Our Lineup
             </div>
             <div className="w-full p-10 pt-2 text-oregano lg:p-72 lg:pt-2 lg:pb-8 text-xl lg:text-3xl fade-in fadeInElement">
                 Singers and Bands at Anhad 2024
@@ -257,7 +258,7 @@ export default function Home() {
                                                 "_blank",
                                             );
                                         }}
-                                        className="z-10 hover:scale-105 transition-all duration-300 cursor-pointer rounded-full bg-cyan-400 bg-opacity-50 p-2 pl-8 pr-24 flex flex-wrap"
+                                        className="z-10 hover:scale-105 transition-all duration-300 cursor-pointer rounded-full bg-purple-400 bg-opacity-50 p-2 pl-8 pr-24 flex flex-wrap"
                                     >
                                         <span className="w-full text-3xl">
                                             {artist.name}
