@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import background from '../../../public/images/background/banner1.png';
+import background from '../../../public/images/background/events.jpg';
 import Events from './events_data';
 import './style.css';
 
