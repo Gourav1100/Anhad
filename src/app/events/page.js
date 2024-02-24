@@ -30,13 +30,10 @@ export default function page() {
                             <i className="fi fi-sr-sparkles text-2xl md:text-4xl flex h-full items-center justify-center"></i>
                         </div>
                         <div className="w-full h-fit mt-6 flex justify-center text-4xl md:text-5xl">
-                            Most Popular Genres
+                            Our Events
                         </div>
                         <div className="w-96 font-extralight h-fit mt-6 flex justify-center text-md md:text-lg text-center">
-                            Our Collection Of Award-Winning Popular Bands For
-                            Hire Perform Floor-Filling Songs In All Genres, That
-                            Everyone Loves. But Don't Leave It Too Late – The
-                            Best Bands Book Up Early!
+                       
                         </div>
                     </div>
                 </div>
