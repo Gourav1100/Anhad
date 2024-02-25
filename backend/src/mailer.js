@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-async function sendEmail(pdfFilePath) {
+async function sendEmail(email, pdfFilePath) {
     // Configure nodemailer with your email service details
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -13,7 +13,7 @@ async function sendEmail(pdfFilePath) {
     // Email details
     const mailOptions = {
         from: 'anhad@iitjammu.ac.in',
-        to: '2021uch0028@iitjammu.ac.in',
+        to: email,
         subject: 'Ticket Coonfirmation',
         text: 'Please find the attached PDF file with QR code, header, text, and object data.',
         // attachments: [{ path:pdfFilePath  }]
