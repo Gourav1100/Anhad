@@ -22,5 +22,12 @@
             "universe_domain": "googleapis.com"
         },
         "bucket": "anhad2024"
-    }
+    },
+    "nodemailer": {
+        "user": "anhad@iitjammu.ac.in",
+        "pass": "uuqq jtme lnfs unwp"
+    },
+    "rzp_key_id": "rzp_test_WDb6DFQhixarEj",
+    "rzp_key_secret": "fUUWcbMHsxkn0A4V86YBhIaV",
+    "ticket_base_url": "https://localhost:3000/ticket"
 }

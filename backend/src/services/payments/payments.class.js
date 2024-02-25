@@ -1,12 +1,77 @@
+/* eslint-disable no-empty */
+/* eslint-disable no-useless-catch */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 const { Service } = require("feathers-sequelize");
 const Razorpay = require("razorpay");
 const moment = require("moment");
-const rzp_key_id = "rzp_test_WDb6DFQhixarEj";
-const rzp_key_secret = "fUUWcbMHsxkn0A4V86YBhIaV";
 const api_password = "peppermint_";
+const nodemailer = require("nodemailer");
+const QRCode = require("qrcode");
+const { Storage } = require("@google-cloud/storage");
+const getHTML = require("./getHTML");
+
+async function sendEmail(auth, url, data, qr_code) {
+    // Configure nodemailer with your email service details
+    const transporter = nodemailer.createTransport({
+        service: "Gmail",
+        auth,
+    });
+    const mailOptions = {
+        from: "anhad@iitjammu.ac.in",
+        to: data.email,
+        subject: "Ticket Confirmation",
+        text: "Please find the link and QR code below",
+        html: getHTML(url, data, qr_code),
+    };
+    try {
+        const info = await transporter.sendMail(mailOptions);
+        console.log("Email sent:", info.response);
+    } catch (err) {
+        console.error("Error sending email:", err);
+    }
+}
+
+async function generateQRCode(url, data, app) {
+    try {
+        const fileName = `qr_${data.paymentIdRazorpay}.jpeg`;
+        const encodedStream = (await QRCode.toDataURL(url)).split(
+            "base64,",
+        )[1];
+        if (encodedStream) {
+            const decodedStream = Buffer.from(encodedStream, "base64");
+            const googleCloudStorageConfig = app.get("google-cloud-storage");
+            const storage = new Storage({
+                credentials: googleCloudStorageConfig.secret,
+            });
+            const bucket = storage.bucket(googleCloudStorageConfig.bucket);
+            await bucket.makePublic();
+            const file = bucket.file(fileName);
+            try {
+                const writeStream = file.createWriteStream({
+                    metadata: {
+                        contentType: "image/jpeg",
+                    },
+                });
+
+                writeStream.write(decodedStream);
+                writeStream.end();
+                while (!(await writeStream.writableEnded)) {}
+                return file.publicUrl();
+            } catch (err) {
+                throw err;
+            }
+        }
+    } catch (err) {
+        console.error("Error generating QR code:", err);
+    }
+}
 
 exports.Payments = class Payments extends Service {
+    constructor(options, app) {
+        super(options);
+        this.app = app;
+    }
     async create(data, params) {
         const { name, contact, email, studentIdImage, studentId } = data;
         const amount = 50000;
@@ -18,8 +83,8 @@ exports.Payments = class Payments extends Service {
         }
 
         var instance = new Razorpay({
-            key_id: rzp_key_id,
-            key_secret: rzp_key_secret,
+            key_id: this.app.get("rzp_key_id"),
+            key_secret: this.app.get("rzp_key_secret"),
         });
 
         var options = {
@@ -57,7 +122,6 @@ exports.Payments = class Payments extends Service {
 
     async patch(id, data, params) {
         if (data.checkIn) {
-            console.log(data);
             if (data.pass !== api_password + new Date().getDate().toString()) {
                 return {
                     code: 401,
@@ -113,8 +177,8 @@ exports.Payments = class Payments extends Service {
         }
         let updatedData = existingData.data[0];
         var instance = new Razorpay({
-            key_id: rzp_key_id,
-            key_secret: rzp_key_secret,
+            key_id: this.app.get("rzp_key_id"),
+            key_secret: this.app.get("rzp_key_secret"),
         });
 
         var {
@@ -128,7 +192,7 @@ exports.Payments = class Payments extends Service {
                     payment_id: data.razorpay_payment_id,
                 },
                 data.razorpay_signature,
-                rzp_key_secret,
+                this.app.get("rzp_key_secret"),
             )
         ) {
             updatedData.paymentIdRazorpay = data.razorpay_payment_id;
@@ -141,6 +205,28 @@ exports.Payments = class Payments extends Service {
                 message: "Inavlid Payment Details",
             };
         }
+        try {
+            const QRCode = await generateQRCode(
+                `${this.app.get("ticket_base_url")}/${
+                    data.razorpay_payment_id
+                }`,
+                updatedData,
+                this.app,
+            );
+            // send Confirmation Email
+            await sendEmail(
+                this.app.get("nodemailer"),
+                `${this.app.get("ticket_base_url")}/${
+                    data.razorpay_payment_id
+                }`,
+                updatedData,
+                QRCode,
+            );
+        } catch (error) {
+            console.error("Error sending email:", error);
+            throw error;
+        }
+
         return {
             code: 200,
             message: "Payment Successfull",
