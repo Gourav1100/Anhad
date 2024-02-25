@@ -47,62 +47,67 @@ function page() {
             studentIdImage: image,
             studentId: event.target.studentId.value,
         };
+        let error = false;
         const response = await axios
             .post(process.env.NEXT_PUBLIC_BACKEND_URL + "/payments", formData)
             .catch((err) => {
                 alert(err.message);
+                error = true;
+                return err;
             });
-        setLoading("Loading Payment Portal");
-        const orderId = response.data.orderId;
-        const options = {
-            key: process.env.NEXT_PUBLIC_RAZOR_PAY_KEY, // Enter the Key ID generated from the Dashboard
-            amount: process.env.NEXT_PUBLIC_TICKET_AMOUNT, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-            currency: "INR",
-            name: "Anhad 2024",
-            description: "Anhad Ticket Booking Portal",
-            image: logo.url,
-            order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the response of createOrder().
-            handler: async function (response) {
-                setLoading("Verifying Payment");
-                const res = await axios
-                    .patch(
-                        process.env.NEXT_PUBLIC_BACKEND_URL + "/payments",
-                        response,
-                    )
-                    .catch((err) => {
-                        setLoading("Verification Failed");
-                        setTimeout(() => {
-                            setLoading("");
-                        }, 1000);
-                        console.log(err);
-                    });
-                setLoading("Loading Ticket");
-                router.push(`/ticket/${response.razorpay_payment_id}`);
+        if (!error) {
+            setLoading("Loading Payment Portal");
+            const orderId = response.data.orderId;
+            const options = {
+                key: process.env.NEXT_PUBLIC_RAZOR_PAY_KEY, // Enter the Key ID generated from the Dashboard
+                amount: process.env.NEXT_PUBLIC_TICKET_AMOUNT, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                currency: "INR",
+                name: "Anhad 2024",
+                description: "Anhad Ticket Booking Portal",
+                image: logo.url,
+                order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the response of createOrder().
+                handler: async function (response) {
+                    setLoading("Verifying Payment");
+                    const res = await axios
+                        .patch(
+                            process.env.NEXT_PUBLIC_BACKEND_URL + "/payments",
+                            response,
+                        )
+                        .catch((err) => {
+                            setLoading("Verification Failed");
+                            setTimeout(() => {
+                                setLoading("");
+                            }, 1000);
+                            console.log(err);
+                        });
+                    setLoading("Loading Ticket");
+                    router.push(`/ticket/${response.razorpay_payment_id}`);
+                    setTimeout(() => {
+                        setLoading("");
+                    }, 1000);
+                },
+                prefill: {
+                    name: formData.name,
+                    email: formData.email,
+                    contact: formData.contact,
+                },
+                theme: {
+                    color: "#3399cc",
+                },
+            };
+
+            const rzp1 = new Razorpay(options);
+
+            rzp1.on("payment.failed", function (response) {
+                console.log(1);
+                setLoading("Payment Failed");
                 setTimeout(() => {
                     setLoading("");
                 }, 1000);
-            },
-            prefill: {
-                name: formData.name,
-                email: formData.email,
-                contact: formData.contact,
-            },
-            theme: {
-                color: "#3399cc",
-            },
-        };
-
-        const rzp1 = new Razorpay(options);
-
-        rzp1.on("payment.failed", function (response) {
-            console.log(1);
-            setLoading("Payment Failed");
-            setTimeout(() => {
-                setLoading("");
-            }, 1000);
-        });
-        setLoading("Waiting for Payment");
-        rzp1.open();
+            });
+            setLoading("Waiting for Payment");
+            rzp1.open();
+        }
     }
     return (
         <div className="p-4 mt-12 w-full flex flex-wrap justify-center font-mono">
