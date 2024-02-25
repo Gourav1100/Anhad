@@ -95,6 +95,7 @@ function page() {
         const rzp1 = new Razorpay(options);
 
         rzp1.on("payment.failed", function (response) {
+            console.log(1);
             setLoading("Payment Failed");
             setTimeout(() => {
                 setLoading("");
