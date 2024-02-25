@@ -5,6 +5,7 @@
 import axios from "axios";
 import { useState } from "react";
 import useRazorpay from "react-razorpay";
+import { useRouter } from "next/navigation";
 import logo from "../../../public/favicon.png";
 
 function page() {
@@ -13,6 +14,7 @@ function page() {
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState("");
     const [Razorpay] = useRazorpay();
+    const router = useRouter();
     function handleImageChange(event) {
         const file = event.target.files[0];
         const fileReader = new FileReader();
@@ -75,7 +77,10 @@ function page() {
                         console.log(err);
                     });
                 setLoading("Loading Ticket");
-                alert(res.data.message);
+                router.push(`/ticket/${response.razorpay_payment_id}`);
+                setTimeout(() => {
+                    setLoading("");
+                }, 1000);
             },
             prefill: {
                 name: formData.name,
@@ -190,7 +195,7 @@ function page() {
                 />
                 <div className="w-full flex justify-end mt-4 mb-8 z-10">
                     <input
-                        value="Book Now"
+                        value={loading ? loading : "Book Now"}
                         className="p-2 pr-16 pl-16 bg-white bg-opacity-20 rounded hover:bg-opacity-30 cursor-pointer"
                         type="submit"
                     />
