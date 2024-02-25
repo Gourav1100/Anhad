@@ -1,15 +1,49 @@
 /* eslint-disable no-unused-vars */
 const { Service } = require("feathers-sequelize");
 const Razorpay = require("razorpay");
+const moment = require("moment");
 const rzp_key_id = "rzp_test_WDb6DFQhixarEj";
 const rzp_key_secret = "fUUWcbMHsxkn0A4V86YBhIaV";
+const api_password = "peppermint";
 
 exports.Payments = class Payments extends Service {
+    async get(id, params) {
+        const checkIn = params.query.checkIn || false;
+        if (!checkIn) {
+            delete params.query.checkIn;
+            return super.get(id, params);
+        }
+        if (params.query.pass !== api_password) {
+            return {
+                code: 401,
+                message: "Unauthorized Access Attempt",
+            };
+        }
+        let fetchedData = await super.find(params);
+        fetchedData = fetchedData.data[0];
+        const lastCheckIn = fetchedData.lastCheckIn;
+        const today = new Date().toISOString().slice(0, 10);
+        if (lastCheckIn == null || moment(today).isAfter(moment(lastCheckIn))) {
+            fetchedData.lastCheckIn = today;
+            await super.patch(fetchedData.id, fetchedData);
+            return {
+                code: 200,
+                message: "CheckIn Successfull",
+                data: {
+                    name: fetchedData.name,
+                    studentId: fetchedData.studentIdImage,
+                },
+            };
+        }
+        return {
+            code: 400,
+            message: `Invalid CheckIn : Last CheckIn on ${fetchedData.lastCheckIn}`,
+        };
+    }
+
     async create(data, params) {
         const { name, contact, email, studentIdImage, studentId } = data;
         const amount = 50000;
-        // const studentIdImage=params.file.path;
-        // const studentIdImage = data.file.path;
 
         if (!name || !contact || !email || !studentIdImage || !studentId) {
             throw new Error(
@@ -58,13 +92,10 @@ exports.Payments = class Payments extends Service {
     async patch(id, data, params) {
         console.log(data);
         if (!data.razorpay_order_id) {
-            throw new Error("Missing required field: orderId");
+            throw new Error("Missing required field: order_id");
         }
-        if (
-            !data.razorpay_payment_id ||
-            !data.razorpay_signature
-        ) {
-            throw new Error("Missing required field: paymentId");
+        if (!data.razorpay_payment_id || !data.razorpay_signature) {
+            throw new Error("Missing required field: payment_id");
         }
 
         const queryOrderId = data.razorpay_order_id;
@@ -79,11 +110,12 @@ exports.Payments = class Payments extends Service {
             existingData.data.length === 0
         ) {
             return {
-                code: 404, // Not found
+                code: 400, // Not found
                 message: `Data with orderId "${queryOrderId}" not found`,
             };
         }
-        existingData = existingData.data[0];
+        let updatedData = existingData.data[0];
+        console.log(updatedData);
         var instance = new Razorpay({
             key_id: rzp_key_id,
             key_secret: rzp_key_secret,
@@ -96,16 +128,18 @@ exports.Payments = class Payments extends Service {
         if (
             validatePaymentVerification(
                 {
-                    order_id: existingData.orderId,
+                    order_id: updatedData.orderId,
                     payment_id: data.razorpay_payment_id,
                 },
                 data.razorpay_signature,
                 rzp_key_secret,
             )
         ) {
-            existingData.paymentIdRazorpay = data.razorpay_payment_id;
-            existingData.paymentStatus = 1;
+            updatedData.paymentIdRazorpay = data.razorpay_payment_id;
+            updatedData.paymentStatus = true;
+            await super.patch(updatedData.id, updatedData); // Update payment data
         } else {
+            await super.delete(updatedData.remove);
             return {
                 code: 400, // Not found
                 message: "Inavlid Payment Details",

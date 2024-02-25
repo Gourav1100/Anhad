@@ -45,6 +45,10 @@ module.exports = function (app) {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            lastCheckIn:{
+                type : DataTypes.DATEONLY,
+                allowNull : true,
+            }
         },
         {
             hooks: {
