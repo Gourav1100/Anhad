@@ -9,6 +9,7 @@ import logo from "../../../public/favicon.png";
 
 function page() {
     const [image, setImage] = useState("");
+    const [loading, setLoading] = useState("");
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState("");
     const [Razorpay] = useRazorpay();
@@ -36,6 +37,7 @@ function page() {
             return setTimeout(() => setSubmitted(false), 2000);
         }
         setSubmitted(false);
+        setLoading("Generating Ticket");
         const formData = {
             name: event.target.name.value,
             email: event.target.email.value,
@@ -48,6 +50,7 @@ function page() {
             .catch((err) => {
                 alert(err.message);
             });
+        setLoading("Loading Payment Portal");
         const orderId = response.data.orderId;
         const options = {
             key: process.env.NEXT_PUBLIC_RAZOR_PAY_KEY, // Enter the Key ID generated from the Dashboard
@@ -58,15 +61,20 @@ function page() {
             image: logo.url,
             order_id: orderId, //This is a sample Order ID. Pass the `id` obtained in the response of createOrder().
             handler: async function (response) {
+                setLoading("Verifying Payment");
                 const res = await axios
                     .patch(
                         process.env.NEXT_PUBLIC_BACKEND_URL + "/payments",
                         response,
                     )
                     .catch((err) => {
+                        setLoading("Verification Failed");
+                        setTimeout(() => {
+                            setLoading("");
+                        }, 1000);
                         console.log(err);
                     });
-                console.log(res);
+                setLoading("Loading Ticket");
                 alert(res.data.message);
             },
             prefill: {
@@ -82,9 +90,12 @@ function page() {
         const rzp1 = new Razorpay(options);
 
         rzp1.on("payment.failed", function (response) {
-            console.log(response);
+            setLoading("Payment Failed");
+            setTimeout(() => {
+                setLoading("");
+            }, 1000);
         });
-
+        setLoading("Waiting for Payment");
         rzp1.open();
     }
     return (
