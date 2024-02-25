@@ -30,4 +30,4 @@ async function sendEmail(email, pdfFilePath) {
 
 module.exports={sendEmail};
 
-sendEmail('2021ucs0094@iitjammu.ac.in','output.pdf');
+// sendEmail('2021ucs0094@iitjammu.ac.in','output.pdf');
