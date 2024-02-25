@@ -58,7 +58,7 @@ export default function Home() {
                 <div className="absolute bg-black bg-opacity-20 h-full w-full backdrop-blur-xl -z-20"></div>
                 <div className="w-full absolute h-full flex justify-center overflow-hidden">
                     <img
-                        className="rounded-xl transition-all duration-500 hover:scale-105 opacity-80 hover:opacity-90 object-cover md:object-contain"
+                        className="rounded-xl transition-all duration-500 md:hover:scale-105 opacity-100 md:opacity-80 md:hover:opacity-90 object-contain scale-150 md:scale-100"
                         style={{
                             height: "100%",
                         }}
