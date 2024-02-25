@@ -157,7 +157,7 @@ export default function Page(params) {
                             fgColor="#57534e"
                             bgColor="#ffffff"
                             size={256}
-                            value={window.location.href}
+                            value={`https://anhad.ac/ticket/${payment_id}`}
                             viewBox={`0 0 256 256`}
                         />
                     </span>
