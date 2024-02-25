@@ -12,7 +12,7 @@ async function sendEmail(pdfFilePath) {
 
     // Email details
     const mailOptions = {
-        from: '2021ucs0094@iitjammu.ac.in',
+        from: 'anhad@iitjammu.ac.in',
         to: '2021uch0028@iitjammu.ac.in',
         subject: 'Ticket Coonfirmation',
         text: 'Please find the attached PDF file with QR code, header, text, and object data.',
