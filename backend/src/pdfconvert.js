@@ -6,6 +6,8 @@ const QRCode = require('qrcode');
 // data here means- url that qr code will redirect to
 // filename means path to store qr code in form of png
 
+
+
 async function generateQRCode(data, filename) {
     try {
         await QRCode.toFile(filename, data);
@@ -17,6 +19,7 @@ async function generateQRCode(data, filename) {
 
 // url - url of html of ticket
 // Path- where to store the pdf
+
 const pdfgenerate=async (url,Path) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
