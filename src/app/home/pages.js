@@ -11,7 +11,6 @@ import speakers from "./speakers";
 import team from "./team_subset";
 import "./style.css";
 
-
 export default function Home() {
     function isInViewport(element) {
         const rect = element.getBoundingClientRect();
@@ -43,7 +42,7 @@ export default function Home() {
             <div
                 className="relative"
                 style={{
-                    height: "100vh",
+                    height: "90vh",
                 }}
             >
                 <div
@@ -53,6 +52,7 @@ export default function Home() {
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",
+                        filter: "blur(10px)",
                     }}
                 ></div>
                 <div className="absolute bg-black bg-opacity-20 h-full w-full backdrop-blur-xl -z-20"></div>
@@ -60,9 +60,8 @@ export default function Home() {
                     <img
                         className="rounded-xl transition-all duration-500 hover:scale-105 opacity-80 hover:opacity-90"
                         style={{
-                            width: "100%",
                             height: "100%",
-                            objectFit: "cover",
+                            objectFit: "contain",
                         }}
                         src={background.src}
                         alt="anhad"
@@ -106,32 +105,30 @@ export default function Home() {
                                 TeChNo-CuLtUrAl
                             </span>
                             <span className="p-8 pr-16 pl-16 text-cyan-600">
-                            7-11 MaRcH
+                                7-11 MaRcH
                             </span>
                             <span className="p-8 pr-16 pl-16 text-sky-700">
                                 tEcHnO-cUlTuRaL
                             </span>
                             <span className="p-8 pr-16 pl-16 text-teal-700">
-                            7-11 March
+                                7-11 March
                             </span>
                             <span className="p-8 pr-16 pl-16 text-pink-700">
                                 TeChNo-CuLtUrAl
                             </span>
                             <span className="p-8 pr-16 pl-16 text-amber-600">
-                            7-11 MaRcH
+                                7-11 MaRcH
                             </span>
                             <span className="p-8 pr-16 pl-16 text-sky-600">
                                 tEcHnO-cUlTuRaL
                             </span>
                             <span className="p-8 pr-16 pl-16 text-teal-600">
-                            7-11 maRcH
+                                7-11 maRcH
                             </span>
                             <span className="p-8 pr-16 pl-16 text-pink-600">
                                 TeChNo-CuLtUrAl
                             </span>
-                            <span className="p-8 pr-16 pl-16">
-                            7-11 MaRcH
-                            </span>
+                            <span className="p-8 pr-16 pl-16">7-11 MaRcH</span>
                         </marquee>
                     </div>
                 </div>
