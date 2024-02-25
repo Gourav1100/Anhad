@@ -4,43 +4,9 @@ const Razorpay = require("razorpay");
 const moment = require("moment");
 const rzp_key_id = "rzp_test_WDb6DFQhixarEj";
 const rzp_key_secret = "fUUWcbMHsxkn0A4V86YBhIaV";
-const api_password = "peppermint";
+const api_password = "peppermint_";
 
 exports.Payments = class Payments extends Service {
-    async get(id, params) {
-        const checkIn = params.query.checkIn || false;
-        if (!checkIn) {
-            delete params.query.checkIn;
-            return super.get(id, params);
-        }
-        if (params.query.pass !== api_password) {
-            return {
-                code: 401,
-                message: "Unauthorized Access Attempt",
-            };
-        }
-        let fetchedData = await super.find(params);
-        fetchedData = fetchedData.data[0];
-        const lastCheckIn = fetchedData.lastCheckIn;
-        const today = new Date().toISOString().slice(0, 10);
-        if (lastCheckIn == null || moment(today).isAfter(moment(lastCheckIn))) {
-            fetchedData.lastCheckIn = today;
-            await super.patch(fetchedData.id, fetchedData);
-            return {
-                code: 200,
-                message: "CheckIn Successfull",
-                data: {
-                    name: fetchedData.name,
-                    studentId: fetchedData.studentIdImage,
-                },
-            };
-        }
-        return {
-            code: 400,
-            message: `Invalid CheckIn : Last CheckIn on ${fetchedData.lastCheckIn}`,
-        };
-    }
-
     async create(data, params) {
         const { name, contact, email, studentIdImage, studentId } = data;
         const amount = 50000;
@@ -90,7 +56,38 @@ exports.Payments = class Payments extends Service {
     }
 
     async patch(id, data, params) {
-        console.log(data);
+        if (data.checkIn) {
+            console.log(data);
+            if (data.pass !== api_password + new Date().getDate().toString()) {
+                return {
+                    code: 401,
+                    message: "Unauthorized Access Attempt",
+                };
+            }
+            let fetchedData = await super.find(params);
+            fetchedData = fetchedData.data[0];
+            const lastCheckIn = fetchedData.lastCheckIn;
+            const today = new Date().toISOString().slice(0, 10);
+            if (
+                lastCheckIn == null ||
+                moment(today).isAfter(moment(lastCheckIn))
+            ) {
+                fetchedData.lastCheckIn = today;
+                await super.patch(fetchedData.id, fetchedData);
+                return {
+                    code: 200,
+                    message: "CheckIn Successful",
+                    data: {
+                        name: fetchedData.name,
+                        studentId: fetchedData.studentIdImage,
+                    },
+                };
+            }
+            return {
+                code: 400,
+                message: `Invalid CheckIn : Last CheckIn on ${fetchedData.lastCheckIn}`,
+            };
+        }
         if (!data.razorpay_order_id) {
             throw new Error("Missing required field: order_id");
         }
@@ -115,7 +112,6 @@ exports.Payments = class Payments extends Service {
             };
         }
         let updatedData = existingData.data[0];
-        console.log(updatedData);
         var instance = new Razorpay({
             key_id: rzp_key_id,
             key_secret: rzp_key_secret,
