@@ -7,6 +7,7 @@ import { useState } from "react";
 import useRazorpay from "react-razorpay";
 import { useRouter } from "next/navigation";
 import logo from "../../../public/favicon.png";
+import Compressor from "compressorjs";
 
 function page() {
     const [image, setImage] = useState("");
@@ -17,20 +18,26 @@ function page() {
     const router = useRouter();
     function handleImageChange(event) {
         const file = event.target.files[0];
-        const fileReader = new FileReader();
-        fileReader.onload = () => {
-            if (fileReader.result.length < 102400) {
-                setError("");
-                setImage(fileReader.result);
-            } else {
-                setError("Max Image Size is 100KB");
-                document.querySelector("#studentIdImage").value = "";
-                setTimeout(() => {
-                    setError("");
-                }, 2000);
-            }
-        };
-        fileReader.readAsDataURL(file);
+        new Compressor(file, {
+            maxHeight: 512,
+            maxWidth: 512,
+            success: (compressedResult) => {
+                const fileReader = new FileReader();
+                fileReader.onload = () => {
+                    if (fileReader.result.length < 102400) {
+                        setError("");
+                        setImage(fileReader.result);
+                    } else {
+                        setError("Max Image Size is 100KB");
+                        document.querySelector("#studentIdImage").value = "";
+                        setTimeout(() => {
+                            setError("");
+                        }, 2000);
+                    }
+                };
+                fileReader.readAsDataURL(compressedResult);
+            },
+        });
     }
     function setPaymentFailed(id) {
         setLoading("Payment Failed");
