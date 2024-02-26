@@ -35,9 +35,7 @@ async function sendEmail(auth, url, data, qr_code) {
 async function generateQRCode(url, data, app) {
     try {
         const fileName = `qr_${data.paymentIdRazorpay}.jpeg`;
-        const encodedStream = (await QRCode.toDataURL(url)).split(
-            "base64,",
-        )[1];
+        const encodedStream = (await QRCode.toDataURL(url)).split("base64,")[1];
         if (encodedStream) {
             const decodedStream = Buffer.from(encodedStream, "base64");
             const googleCloudStorageConfig = app.get("google-cloud-storage");
@@ -86,6 +84,7 @@ exports.Payments = class Payments extends Service {
             key_id: this.app.get("rzp_key_id"),
             key_secret: this.app.get("rzp_key_secret"),
         });
+        const date = new Date();
 
         var options = {
             amount: amount, // amount in the smallest currency unit
@@ -111,10 +110,8 @@ exports.Payments = class Payments extends Service {
         };
 
         try {
-            await super.create(paymentData, params); // Save payment data
-            return {
-                orderId,
-            };
+            const res = await super.create(paymentData, params); // Save payment data
+            return res;
         } catch (error) {
             throw new Error(`Failed to create payment: ${error.message}`);
         }

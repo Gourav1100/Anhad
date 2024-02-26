@@ -32,6 +32,17 @@ function page() {
         };
         fileReader.readAsDataURL(file);
     }
+    function setPaymentFailed(id) {
+        setLoading("Payment Failed");
+        setTimeout(async () => {
+            setLoading("Deleting Ticket");
+            await axios.delete(
+                process.env.NEXT_PUBLIC_BACKEND_URL + `/payments/${id}`,
+            );
+            setLoading("");
+        }, 1000);
+    }
+
     async function handleSubmit(event) {
         event.preventDefault();
         setSubmitted(true);
@@ -57,6 +68,7 @@ function page() {
             });
         if (!error) {
             setLoading("Loading Payment Portal");
+            const id = response.data.id;
             const orderId = response.data.orderId;
             const options = {
                 key: process.env.NEXT_PUBLIC_RAZOR_PAY_KEY, // Enter the Key ID generated from the Dashboard
@@ -94,19 +106,23 @@ function page() {
                 theme: {
                     color: "#3399cc",
                 },
+                modal: {
+                    ondismiss: () => setPaymentFailed(id),
+                },
             };
 
             const rzp1 = new Razorpay(options);
-
-            rzp1.on("payment.failed", function (response) {
-                console.log(1);
-                setLoading("Payment Failed");
-                setTimeout(() => {
-                    setLoading("");
-                }, 1000);
+            rzp1.on("payment.failed", () => setPaymentFailed(id));
+            rzp1.on("payment.window.closed", function () {
+                console.log("Razorpay window closed");
             });
             setLoading("Waiting for Payment");
             rzp1.open();
+        } else {
+            setLoading("Failed to Generate Ticket");
+            setTimeout(() => {
+                setLoading("");
+            }, 1000);
         }
     }
     return (
@@ -201,6 +217,7 @@ function page() {
                 />
                 <div className="w-full flex justify-end mt-4 mb-8 z-10">
                     <input
+                        disabled={loading != ""}
                         value={loading ? loading : "Book Now"}
                         className="p-2 pr-16 pl-16 bg-white bg-opacity-20 rounded hover:bg-opacity-30 cursor-pointer"
                         type="submit"
