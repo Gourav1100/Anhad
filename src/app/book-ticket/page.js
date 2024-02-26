@@ -129,7 +129,7 @@ function page() {
             setLoading("Waiting for Payment");
             rzp1.open();
         } else {
-            setLoading("Failed to Generate Ticket");
+            setLoading("Failed");
             setTimeout(() => {
                 setLoading("");
             }, 1000);
