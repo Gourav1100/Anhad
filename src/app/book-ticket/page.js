@@ -19,11 +19,13 @@ function page() {
     function handleImageChange(event) {
         const file = event.target.files[0];
         new Compressor(file, {
-            maxHeight: 512,
-            maxWidth: 512,
+            quality: 0.8,
+            maxHeight: 300,
+            maxWidth: 300,
             success: (compressedResult) => {
                 const fileReader = new FileReader();
                 fileReader.onload = () => {
+                    console.log(fileReader.result.length);
                     if (fileReader.result.length < 102400) {
                         setError("");
                         setImage(fileReader.result);
