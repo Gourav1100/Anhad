@@ -125,6 +125,7 @@ export default function RootLayout({ children }) {
                     name="description"
                     content="Anhad - Indian Institute of Technology, Jammu"
                 />
+                <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
                 <link rel="icon" sizes="64x64" href={icon.src} />
             </head>
             <body
