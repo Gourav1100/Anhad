@@ -13,6 +13,7 @@ function page() {
     const [image, setImage] = useState("");
     const [loading, setLoading] = useState("");
     const [submitted, setSubmitted] = useState(false);
+    const [terms, setTerms] = useState(false);
     const [error, setError] = useState("");
     const [Razorpay] = useRazorpay();
     const router = useRouter();
@@ -168,6 +169,32 @@ function page() {
                     required
                     type="tel"
                 />
+                <div className="w-4/5 mt-2 mb-2 p-2 z-10">
+                    <input
+                        className="bg-transparent z-10 outline-none transition-all duration-300"
+                        name="terms"
+                        onChange={(event) => {
+                            setTerms(event.target.checked);
+                        }}
+                        required
+                        type="checkbox"
+                    />
+                    <label className="ml-2 text-sm z-10">
+                        I accept the{" "}
+                        <span
+                            onClick={() =>
+                                window.open(
+                                    "https://drive.google.com/file/d/1Dj4xmSIn_0AAgGI37jd-IB8SGPdSmI6p/view?usp=sharing",
+                                    "_blank",
+                                )
+                            }
+                            className="underline cursor-pointer"
+                        >
+                            terms and conditions
+                        </span>
+                        .
+                    </label>
+                </div>
                 <div className="w-4/5 z-10 mt-6 mb-4 flex flex-wrap">
                     <label
                         className={`cursor-pointer hover:bg-opacity-15 transition-all duration-300 p-2 pr-4 pl-4 bg-opacity-25 rounded ${
@@ -226,9 +253,13 @@ function page() {
                 />
                 <div className="w-full flex justify-end mt-4 mb-8 z-10">
                     <input
-                        disabled={loading != ""}
+                        disabled={loading != "" || !terms}
                         value={loading ? loading : "Book Now"}
-                        className="p-2 pr-16 pl-16 bg-white bg-opacity-20 rounded hover:bg-opacity-30 cursor-pointer"
+                        className={`p-2 pr-16 pl-16 bg-white rounded ${
+                            terms
+                                ? "bg-opacity-20 hover:bg-opacity-30 cursor-pointer"
+                                : "bg-opacity-5 cursor-not-allowed"
+                        }`}
                         type="submit"
                     />
                 </div>
