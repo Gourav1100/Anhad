@@ -306,14 +306,30 @@ export default function RootLayout({ children }) {
                                 Gourav Bidhuri
                             </a>
                             <a
-                                href="/events"
+                                target="_blank"
+                                href="https://github.com/HKAgrwl"
+                                className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                            >
+                                <i className="fi fi-brands-github mr-2"></i>{" "}
+                                Harsh Agarwal
+                            </a>
+                            <a
+                                target="_blank"
+                                href="https://github.com/falak-2711"
+                                className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
+                            >
+                                <i className="fi fi-brands-github mr-2"></i>{" "}
+                                Falak
+                            </a>
+                            <a
+                                href="#"
                                 className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
                             >
                                 <i className="fi fi-brands-github mr-2"></i>{" "}
                                 Vishal Kumar
                             </a>
                             <a
-                                href="/teams"
+                                href="#"
                                 className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
                             >
                                 <i className="fi fi-brands-github mr-2"></i>{" "}
