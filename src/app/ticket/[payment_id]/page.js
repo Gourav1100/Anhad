@@ -25,6 +25,7 @@ export default function Page(params) {
                     pass: password,
                 })
                 .then((res) => {
+                    console.log(res);
                     setCheckedIn(true);
                     setCheckingIn(false);
                 })

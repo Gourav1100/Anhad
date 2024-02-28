@@ -120,10 +120,7 @@ exports.Payments = class Payments extends Service {
     async patch(id, data, params) {
         if (data.checkIn) {
             if (data.pass !== api_password + new Date().getDate().toString()) {
-                return {
-                    code: 401,
-                    message: "Unauthorized Access Attempt",
-                };
+                throw new Error("Unauthorized Access Attempt");
             }
             let fetchedData = await super.find(params);
             fetchedData = fetchedData.data[0];
@@ -144,10 +141,7 @@ exports.Payments = class Payments extends Service {
                     },
                 };
             }
-            return {
-                code: 400,
-                message: `Invalid CheckIn : Last CheckIn on ${fetchedData.lastCheckIn}`,
-            };
+            throw new Error(`Invalid CheckIn : Last CheckIn on ${fetchedData.lastCheckIn}`);
         }
         if (!data.razorpay_order_id) {
             throw new Error("Missing required field: order_id");
