@@ -322,14 +322,14 @@ export default function RootLayout({ children }) {
                                 Falak
                             </a>
                             <a
-                                href="#"
+                                href="https://github.com/vishu9354"
                                 className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
                             >
                                 <i className="fi fi-brands-github mr-2"></i>{" "}
                                 Vishal Kumar
                             </a>
                             <a
-                                href="#"
+                                href="https://github.com/AbhaySingh502"
                                 className="w-full m-2 flex justify-center font-extralight hover:text-pink-700"
                             >
                                 <i className="fi fi-brands-github mr-2"></i>{" "}
