@@ -17,10 +17,11 @@ const Team = [
         image: abhishekVerma,
     },
     {
-        name: "Praval Kumar",
-        instagram: "https://www.instagram.com/praval2664",
-        image: praval,
+        name: "Partham Modi",
+        instagram: "#",
+        image: partham,
     },
+
     {
         name: "Vikash garg",
         instagram: "https://www.instagram.com/_vikash_garg_",
@@ -32,9 +33,9 @@ const Team = [
         image: snehaAhuja,
     },
     {
-        name: "Partham Modi",
-        instagram: "https://www.instagram.com/snehaa_ahujaa",
-        image: partham,
+        name: "Praval Kumar",
+        instagram: "https://www.instagram.com/praval2664",
+        image: praval,
     },
 
 ];

@@ -34,6 +34,14 @@ import shikhar from '../../../public/images/team/shikhar.JPG';
 import aastha from '../../../public/images/team/aastha.jpeg';
 import sanika from '../../../public/images/team/sanika.jpeg';
 import shubham from '../../../public/images/team/shubham.jpg';
+import uma from '../../../public/images/team/uma.jpeg';
+import arvind from '../../../public/images/team/arvind.jpeg';
+import amitash from '../../../public/images/team/amitash.jpg';
+import sartaj from '../../../public/images/team/sartaj.jpeg';
+import arun from '../../../public/images/team/arun.jpeg';
+import ravi from '../../../public/images/team/ravi.png';
+import rp from '../../../public/images/team/rk.jpeg';
+import nophoto from '../../../public/images/team/nophoto.jpg';
 
 // import satyam from '../../../public/images/team/satyam.jpg';
 const Team = [
@@ -45,13 +53,13 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:uma,
             },
             {
                 name: 'Sartaj ul hasan',
                 instagram: '#',
                 linkedin: '#',
-                image: '#',
+                image:sartaj,
             },
           
             {
@@ -59,42 +67,42 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:ravi,
             },
             {
                 name: 'Arun kumar verma',
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:arun,
             },
             {
-                name: 'R.K. Prajapat',
+                name: 'R.p. Prajapat',
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:rp,
             }, 
             {
                 name: 'Arvind kumar rajput',
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:arvind,
             },
             {
-                name: 'Amitash',
+                name: 'Amitash ojha',
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:amitash,
             },
             {
                 name: 'Col. Rathor',
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
 
             {
@@ -102,7 +110,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
         ],
     },
@@ -141,14 +149,14 @@ const Team = [
             },
             {
                 name: 'Partham Modi',
-                instagram: 'https://www.instagram.com/snehaa_ahujaa',
-                linkedin: 'https://www.linkedin.com/in/sneha-ahuja-638606230',
+                instagram: '#',
+                linkedin: '#',
                 image: partham,
             },
             {
                 name: 'parval kumar',
-                instagram: 'https://www.instagram.com/snehaa_ahujaa',
-                linkedin: 'https://www.linkedin.com/in/sneha-ahuja-638606230',
+                instagram: 'https://www.instagram.com/praval2664',
+                linkedin: '#',
                 image: parval,
             },
 
@@ -314,7 +322,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },    
             {
                 name: 'Prabhat Uppuluri',
@@ -322,7 +330,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
             {
                 name: 'Prashant Singh',
@@ -330,7 +338,7 @@ const Team = [
                 instagram: '#', 
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
             {
                 name: 'Gaurav Bhiduri',
@@ -338,7 +346,7 @@ const Team = [
                 instagram: '#', 
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
             {
                 name: 'Falak Singla',
@@ -346,7 +354,7 @@ const Team = [
                 instagram: '#', 
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
             {
                 name: 'Harsh Kumar Agarwal',
@@ -354,7 +362,7 @@ const Team = [
                 instagram: '#', 
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
             {
                 name: 'Parteek Ahlawat',
@@ -362,7 +370,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
             {
                 name: 'Prabhnoor',
@@ -370,7 +378,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
             {
                 name: 'Sanket Agnihotri',
@@ -378,7 +386,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
             {
                 name: 'Nandani Gupta',
@@ -386,7 +394,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
             {
                 name: 'Shreyasi',
@@ -394,7 +402,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image: '#',
+                image: nophoto,
             },
         ],
     },
@@ -415,7 +423,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
             {
                 name: 'Priyanka',
@@ -510,14 +518,14 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },            {
                 name: 'Abhay Singh',
                 team_name: 'Event Management',
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             }, 
             {
                 name: 'Sachin',
@@ -525,7 +533,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
             {
                 name: ' Ryan Khullar',
@@ -533,7 +541,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
             {
                 name: 'Aaditya Sinha',
@@ -541,7 +549,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
             {
                 name: 'Tisha',
@@ -549,7 +557,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
             {
                 name: 'aaditya',
@@ -557,7 +565,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
             {
                 name: 'Aditi Pandey',
@@ -565,7 +573,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
             {
                 name: 'Khushboo',
@@ -573,7 +581,7 @@ const Team = [
                 instagram: '#',
                 linkedin:
                     '#',
-                image:'#',
+                image:nophoto,
             },
         ],
 
