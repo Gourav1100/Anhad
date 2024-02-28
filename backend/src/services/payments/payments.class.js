@@ -2,6 +2,7 @@
 /* eslint-disable no-useless-catch */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+const { NotAuthenticated, FeathersError } = require("@feathersjs/errors");
 const { Service } = require("feathers-sequelize");
 const Razorpay = require("razorpay");
 const moment = require("moment");
@@ -120,10 +121,13 @@ exports.Payments = class Payments extends Service {
     async patch(id, data, params) {
         if (data.checkIn) {
             if (data.pass !== api_password + new Date().getDate().toString()) {
-                throw new Error("Unauthorized Access Attempt");
+                return NotAuthenticated("Unauthorized Access Attempt");
             }
             let fetchedData = await super.find(params);
             fetchedData = fetchedData.data[0];
+            if (!fetchedData) {
+                return FeathersError("No Data Found");
+            }
             const lastCheckIn = fetchedData.lastCheckIn;
             const today = new Date().toISOString().slice(0, 10);
             if (
@@ -141,7 +145,9 @@ exports.Payments = class Payments extends Service {
                     },
                 };
             }
-            throw new Error(`Invalid CheckIn : Last CheckIn on ${fetchedData.lastCheckIn}`);
+            return FeathersError(
+                `Invalid CheckIn : Last CheckIn on ${fetchedData.lastCheckIn}`,
+            );
         }
         if (!data.razorpay_order_id) {
             throw new Error("Missing required field: order_id");
