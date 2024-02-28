@@ -24,8 +24,6 @@ import gyan from '../../../public/images/team/gyan.jpg';
 import garvit from '../../../public/images/team/garvit.jpg';
 import ayanava from '../../../public/images/team/avanaya.jpg';
 import navneet from '../../../public/images/team/navneet.png';
-
-
 import priyanka from '../../../public/images/team/priyanka.jpg';
 import ayush from '../../../public/images/team/ayush.jpg';
 import raghav from '../../../public/images/team/raghav.jpg';
@@ -43,10 +41,25 @@ const Team = [
         title: 'Faculties',
         team: [
             {
+                name: 'Uma shankar',
+                instagram: '#',
+                linkedin:
+                    '#',
+                image:'#',
+            },
+            {
                 name: 'Sartaj ul hasan',
                 instagram: '#',
                 linkedin: '#',
                 image: '#',
+            },
+          
+            {
+                name: 'Ravi kumar arun',
+                instagram: '#',
+                linkedin:
+                    '#',
+                image:'#',
             },
             {
                 name: 'Arun kumar verma',
@@ -56,14 +69,36 @@ const Team = [
                 image:'#',
             },
             {
-                name: 'Ravi kumar arun',
+                name: 'R.K. Prajapat',
+                instagram: '#',
+                linkedin:
+                    '#',
+                image:'#',
+            }, 
+            {
+                name: 'Arvind kumar rajput',
                 instagram: '#',
                 linkedin:
                     '#',
                 image:'#',
             },
             {
-                name: 'Arvind kumar rajput',
+                name: 'Amitash',
+                instagram: '#',
+                linkedin:
+                    '#',
+                image:'#',
+            },
+            {
+                name: 'Col. Rathor',
+                instagram: '#',
+                linkedin:
+                    '#',
+                image:'#',
+            },
+
+            {
+                name: 'Manuvirk',
                 instagram: '#',
                 linkedin:
                     '#',
