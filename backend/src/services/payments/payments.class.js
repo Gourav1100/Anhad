@@ -73,7 +73,7 @@ exports.Payments = class Payments extends Service {
     }
     async create(data, params) {
         const { name, contact, email, studentIdImage, studentId } = data;
-        const amount = 50000;
+        const amount = 60000;
 
         if (!name || !contact || !email || !studentIdImage || !studentId) {
             throw new Error(
