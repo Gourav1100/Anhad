@@ -252,16 +252,23 @@ function page() {
                     accept="image/*"
                 />
                 <div className="w-full flex justify-end mt-4 mb-8 z-10">
-                    <input
+                    <button
                         disabled={loading != "" || !terms}
-                        value={loading ? loading : "Book Now"}
                         className={`p-2 pr-16 pl-16 bg-white rounded ${
                             terms
                                 ? "bg-opacity-20 hover:bg-opacity-30 cursor-pointer"
                                 : "bg-opacity-5 cursor-not-allowed"
                         }`}
                         type="submit"
-                    />
+                    >
+                        {loading ? (
+                            loading
+                        ) : (
+                            <>
+                                Pay ₹<strike>800</strike> 600
+                            </>
+                        )}
+                    </button>
                 </div>
             </form>
         </div>
