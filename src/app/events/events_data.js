@@ -80,12 +80,7 @@ const events_data = [
                 url: "https://unstop.com/events/runway-reverie-anhad24-iit-jammu-861980",
                 image: runwayreverie,
             },
-            {
-                name: "Bridge-A-Thon 2.0",
-                desc: "Step into a world of excitement at our upcoming event, where you are invited to explore the fascinating art of bridge design and building. It is not just for engineers or architects – if you love tackling challenges, this is the perfect playground for you.As the event unfolds, each bridge faces the ultimate challenge – loading them up with weights to see which ones stand strong. Picture the anticipation and cheers as we discover the champions. The winning team gets more than just applause – they will take home a special prize, a little something to celebrate their fantastic engineering skils",
-                url: "https://unstop.com/events/bridge-a-thon-20-anhad24-iit-jammu-868781",
-                image: bridgeathon,
-            },
+            
             {
                 name: "Personality Pageant (Mr. and Ms. Anhad)",
                 desc: "select group of participants who best align with our criteria will advance to the next stage, marking the beginning of an exciting journey forward. The round specifics will be disclosed immediately, so be sure to arrive on time to learn the rules. The top fifteen male and female competitors will advance to the next round. Prepare yourself for a fierce rivalry!",
@@ -168,6 +163,12 @@ const events_data = [
                 desc: "Participants will be divided into groups of 5-6 people each, and they have to choose one person, he will get one word related to technology, coding and he will have to act it out without saying anything and his team members have to guess it. He can use another team to demonstrate something (They won’t say anything and will just follow the instructions). The person will have only 2 minutes time to act. If anyone violates any rule, then a penalty will be imposed (deduction in points). The disqualification criteria will be provided during the event.",
                 url: "https://unstop.com/hackathons/mr-miss-coder-anhad24-iit-jammu-868611",
                 image: mrcoder,
+            },
+            {
+                name: "Bridge-A-Thon 2.0",
+                desc: "Step into a world of excitement at our upcoming event, where you are invited to explore the fascinating art of bridge design and building. It is not just for engineers or architects – if you love tackling challenges, this is the perfect playground for you.As the event unfolds, each bridge faces the ultimate challenge – loading them up with weights to see which ones stand strong. Picture the anticipation and cheers as we discover the champions. The winning team gets more than just applause – they will take home a special prize, a little something to celebrate their fantastic engineering skils",
+                url: "https://unstop.com/events/bridge-a-thon-20-anhad24-iit-jammu-868781",
+                image: bridgeathon,
             },
             {
                 name: "Int Maestro",
