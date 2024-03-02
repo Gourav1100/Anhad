@@ -6,7 +6,7 @@ import cryptotradex from "../../../public/images/posters/cryptotradex.jpg";
 import intmaestro from "../../../public/images/posters/Intmaestro.jpg";
 import linefollower from "../../../public/images/posters/linefollower.jpg";
 import mockstock from "../../../public/images/posters/mockstock.jpg";
-import mrcoder from "../../../public/images/posters/mrcoder.jpg";
+import mrcoder from "../../../public/images/posters/mrcoder.png";
 import operationcipher from "../../../public/images/posters/operationcipher.jpg";
 import powerpulse from "../../../public/images/posters/powerpulse.jpg";
 import stellarspinoff from "../../../public/images/posters/stellarspinoff.jpg";
