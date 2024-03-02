@@ -46,7 +46,7 @@ import nophoto from '../../../public/images/team/nophoto.jpg';
 // import satyam from '../../../public/images/team/satyam.jpg';
 const Team = [
     {
-        title: 'Faculties',
+        title: 'faculty member',
         team: [
             {
                 name: 'Uma shankar',
