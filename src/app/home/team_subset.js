@@ -3,7 +3,7 @@ import vikasGarg from "../../../public/images/team/Vikas.jpg";
 import snehaAhuja from "../../../public/images/team/Sneha.jpg";
 import ranjeet from "../../../public/images/team/ranjeet.jpeg";
 import praval from "../../../public/images/team/praval.jpeg";
-import partham from "../../../public/images/team/partham.png"
+import partham from "../../../public/images/team/partham.png";
 
 const Team = [
     {
@@ -17,11 +17,10 @@ const Team = [
         image: abhishekVerma,
     },
     {
-        name: "Partham Modi",
-        instagram: "#",
-        image: partham,
+        name: "Praval Kumar",
+        instagram: "https://www.instagram.com/praval2664",
+        image: praval,
     },
-
     {
         name: "Vikash garg",
         instagram: "https://www.instagram.com/_vikash_garg_",
@@ -32,12 +31,6 @@ const Team = [
         instagram: "https://www.instagram.com/snehaa_ahujaa",
         image: snehaAhuja,
     },
-    {
-        name: "Praval Kumar",
-        instagram: "https://www.instagram.com/praval2664",
-        image: praval,
-    },
-
 ];
 
 export default Team;

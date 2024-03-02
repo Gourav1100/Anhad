@@ -205,7 +205,7 @@ export default function RootLayout({ children }) {
                                 className="justify-center cursor-pointer flex text-cyan-800 hover:text-cyan-700 border border-cyan-800 hover:border-cyan-700 p-2 rounded hover:bg-cyan-400 hover:bg-opacity-10"
                             >
                                 <i className="text-xl mr-0 md:mr-2 fi fi-rr-ticket h-5 flex flex-col justify-center w-fit"></i>
-                                <span className="hidden text-sm md:flex w-fit h-5 flex-col justify-center">
+                                <span className="text-sm flex w-fit h-5 ml-1 flex-col justify-center">
                                     Book Now
                                 </span>
                             </a>
