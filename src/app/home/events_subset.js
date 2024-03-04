@@ -16,7 +16,7 @@ const Events = [
     },
     {
         name: "Blind Date",
-        link: "#",
+        link: "https://docs.google.com/forms/d/e/1FAIpQLScbsTiBnp0VlQDo29va7Ttp_C5-HiM6Km3V-xP52Eu6L4y6JQ/viewform?usp=sf_link",
         image: blinddate.src,
         desc: 'Anhad , the annual Techno-cultural fest of IIT Jammu is back with its boom. If you are Looking for a fun way to meet new people and potentially find that special someone? Look no further than the 3nd edition of our Blind Date event, exclusively for college students. This unique way of traditional dating creates an element of surprise and excitement, allowing participants to come out of their comfort zones and embrace the unknown. Whether you are looking for a new friend or hoping to find that special someone, why not take a chance on love and sign up for our blind date event today?',
     },
