@@ -21,6 +21,7 @@ import promnight from "../../../public/images/events/promnight.jpg";
 import runwayreverie from "../../../public/images/events/runwayreverie.jpg";
 import groovetroops from "../../../public/images/events/groovetroops.jpg";
 import frozen from "../../../public/images/events/frozen.jpg";
+import animeArena from "../../../public/images/events/animearena.jpeg";
 
 const events_data = [
     {
@@ -43,6 +44,12 @@ const events_data = [
                 desc: "Anhad, the annual Techno-cultural fest of IIT Jammu is back with its boom. If you are Looking for a fun way to meet new people and potentially find that special someone? Look no further than the 3nd edition of our Blind Date event, exclusively for college students. This unique way of traditional dating creates an element of surprise and excitement, allowing participants to come out of their comfort zones and embrace the unknown. Whether you are looking for a new friend or hoping to find that special someone, why not take a chance on love and sign up for our blind date event today?",
                 url: "https://docs.google.com/forms/d/e/1FAIpQLScbsTiBnp0VlQDo29va7Ttp_C5-HiM6Km3V-xP52Eu6L4y6JQ/viewform?usp=sf_link",
                 image: blinddate,
+            },
+            {
+                name: "Anime Arena",
+                desc: "Gear up, it's time to enter the Anime Arena! ￼￼ Show off your skills and unleash your favorite characters in the ultimate showdown!",
+                url: "https://unstop.com/events/anime-arena-anhad24-iit-jammu-912112",
+                image: animeArena,
             },
             {
                 name: "Art-Aria",
@@ -80,7 +87,7 @@ const events_data = [
                 url: "https://unstop.com/events/runway-reverie-anhad24-iit-jammu-861980",
                 image: runwayreverie,
             },
-            
+
             {
                 name: "Personality Pageant (Mr. and Ms. Anhad)",
                 desc: "select group of participants who best align with our criteria will advance to the next stage, marking the beginning of an exciting journey forward. The round specifics will be disclosed immediately, so be sure to arrive on time to learn the rules. The top fifteen male and female competitors will advance to the next round. Prepare yourself for a fierce rivalry!",
