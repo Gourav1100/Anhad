@@ -154,7 +154,7 @@ const Team = [
                 image: partham,
             },
             {
-                name: 'parval kumar',
+                name: 'praval kumar',
                 instagram: 'https://www.instagram.com/praval2664',
                 linkedin: '#',
                 image: parval,
