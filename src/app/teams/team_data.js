@@ -407,7 +407,7 @@ const Team = [
         ],
     },
     {
-        title: 'Co-head',
+        title: 'Associate-head',
         team: [
             {
                 name: 'Vishal kumar',
