@@ -11,8 +11,8 @@ import Compressor from "compressorjs";
 
 function page() {
     const [image, setImage] = useState("");
-    const [loading, setLoading] = useState("");
-    const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState("Closed");
+    const [submitted, setSubmitted] = useState(true);
     const [terms, setTerms] = useState(false);
     const [error, setError] = useState("");
     const [Razorpay] = useRazorpay();
@@ -54,6 +54,7 @@ function page() {
     }
 
     async function handleSubmit(event) {
+        return alert("Ticked Booking is now closed.")
         event.preventDefault();
         setSubmitted(true);
         if (!image) {
