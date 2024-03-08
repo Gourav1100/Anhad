@@ -123,8 +123,12 @@ exports.Payments = class Payments extends Service {
             if (data.pass !== api_password + new Date().getDate().toString()) {
                 return NotAuthenticated("Unauthorized Access Attempt");
             }
-            let fetchedData = await super.find(params);
-            fetchedData = fetchedData.data[0];
+            const fetchedData = (await super.find({
+                query: {
+                    paymentIdRazorpay: data.paymentIdRazorpay,
+                },
+            })).data[0];
+            console.log(fetchedData);
             if (!fetchedData) {
                 return FeathersError("No Data Found");
             }
